@@ -50,14 +50,13 @@ namespace Gui_for_powerhell
             RunScript(script_edited);
             //Output_textbox.Text = username + password;
             results = File.ReadAllText("Credencial_result.txt");
-            if (results == "1")
+            if (results == "1") // Credencials correct
             {
-                Output_textbox.Text += "Nice";
-                Next_button.Enabled = true;
+                
             }
-            else
+            else // Credencial false !add popup
             {
-                Output_textbox.Text += "Nope";
+                MessageBox.Show("Niedostateczne permisje urzytkownika");
             }
             Console.WriteLine(results);
             File.Delete("Credencial_result.txt");
@@ -65,7 +64,7 @@ namespace Gui_for_powerhell
 
         private void Next_button_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Back_button_Click(object sender, EventArgs e)
