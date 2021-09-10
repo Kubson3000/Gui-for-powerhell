@@ -99,8 +99,9 @@ namespace Gui_for_powerhell
             this.Back_button.Name = "Back_button";
             this.Back_button.Size = new System.Drawing.Size(56, 19);
             this.Back_button.TabIndex = 1;
-            this.Back_button.Text = "Back";
+            this.Back_button.Text = "Close";
             this.Back_button.UseVisualStyleBackColor = true;
+            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
             // label1
             // 
@@ -175,6 +176,7 @@ namespace Gui_for_powerhell
             this.Password_box.Location = new System.Drawing.Point(149, 143);
             this.Password_box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Password_box.Name = "Password_box";
+            this.Password_box.PasswordChar = '*';
             this.Password_box.Size = new System.Drawing.Size(143, 20);
             this.Password_box.TabIndex = 3;
             // 

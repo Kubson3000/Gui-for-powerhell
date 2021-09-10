@@ -48,7 +48,7 @@ namespace Gui_for_powerhell
             new_password = '"' + password + '"';
             script_edited = script.Replace("$user_input", new_username).Replace("$pass_input", new_password);
             RunScript(script_edited);
-            Output_textbox.Text = username + password;
+            //Output_textbox.Text = username + password;
             results = File.ReadAllText("Credencial_result.txt");
             if (results == "1")
             {
@@ -65,7 +65,12 @@ namespace Gui_for_powerhell
 
         private void Next_button_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
