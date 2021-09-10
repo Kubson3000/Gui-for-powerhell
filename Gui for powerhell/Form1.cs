@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,11 +33,12 @@ namespace Gui_for_powerhell
             Pipeline pipeline = runspace.CreatePipeline();
             pipeline.Commands.AddScript(script);
             pipeline.Invoke();
+            runspace.Close();
         }
 
         private void Cred_test_button_Click(object sender, EventArgs e)
         {
-            string script_edited, new_username, new_password;
+            string script_edited, new_username, new_password, results;
             string path = "script1.ps1";
             string script = File.ReadAllText(path);
             string username, password;
@@ -46,6 +49,23 @@ namespace Gui_for_powerhell
             script_edited = script.Replace("$user_input", new_username).Replace("$pass_input", new_password);
             RunScript(script_edited);
             Output_textbox.Text = username + password;
+            results = File.ReadAllText("Credencial_result.txt");
+            if (results == "1")
+            {
+                Output_textbox.Text += "Nice";
+                Next_button.Enabled = true;
+            }
+            else
+            {
+                Output_textbox.Text += "Nope";
+            }
+            Console.WriteLine(results);
+            File.Delete("Credencial_result.txt");
+        }
+
+        private void Next_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
