@@ -18,7 +18,27 @@ namespace Gui_for_powerhell
     {
         public int current_page = 1;
         public int choosen = -1;
-        public string new_imie, new_nazwisko, new_password;
+        public string new_imie, new_nazwisko, new_password, ou_list;
+
+        void Ou_search ()
+        {
+            string path = "powershell_functions/ou_search.ps1";
+            string script = File.ReadAllText(path);
+            RunScript(script);
+            ou_list = File.ReadAllText("result.txt");
+            Console.WriteLine(ou_list);
+            StringReader strReader = new StringReader(ou_list);
+            while (true)
+            {
+                string temp = strReader.ReadLine();
+                if (temp != null)
+                {
+                    Ou_listbox.Items.Add(temp);
+                }
+                else { break; }
+            }
+        }
+
         void Page_switcher(int current_page)
         {
             switch (choosen)
@@ -62,7 +82,14 @@ namespace Gui_for_powerhell
                             Main_label.Text = "Wprowadź dane tworzonego użytkownika";
                             Action_choose_panel.Visible = false;
                             User_name_pass_input.Visible = true;
+                            Ou_choose_panel.Visible = false;
                             Next_button.Enabled = false;
+                            Ou_search();
+                            break;
+                        case 4:
+                            Main_label.Text = "Wyszukaj i wybierz grupę w której zostanie utworzony nowy użytkownik.";
+                            User_name_pass_input.Visible = false;
+                            Ou_choose_panel.Visible = true;
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (0 defult)");
@@ -160,6 +187,11 @@ namespace Gui_for_powerhell
 
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -178,28 +210,32 @@ namespace Gui_for_powerhell
             string script_edited = script.Replace("$input1", imie).Replace("$input2", nazwisko).Replace("$input3", password);
             RunScript(script_edited);
             string results = File.ReadAllText("result.txt");
-            int res = Convert.ToInt32(results);
-            switch (res) {
-                case 0:
-                    Next_button.Enabled = true;
-                    break;
-                case 1:
-                    MessageBox.Show("Użytkownik istnieje (pełne imie)");
-                    break;
-                case 2:
-                    MessageBox.Show("Użytkownik istnieje (inicial)");
-                    break;
-                case 3:
-                    MessageBox.Show("Użytkownik istnieje (pełne imie) + będne hasło");
-                    break;
-                case 4:
-                    MessageBox.Show("Użytkownik istnieje (iniciał) + będne hasło");
-                    break;
-                case 5:
-                    MessageBox.Show("Będne hasło");
-                    break;
+            if (results == "0")
+            {
+                Atribiute_editor_panel.Visible = true;
+                Next_button.Enabled = true;
             }
-            Console.WriteLine(results);
+            else if (results == "1")
+            {
+                MessageBox.Show("Użytkownik istnieje (pełne imie)");
+            }
+            else if (results == "2")
+            {
+                MessageBox.Show("Użytkownik istnieje (inicial)");
+            }
+            else if (results == "3")
+            {
+                MessageBox.Show("Użytkownik istnieje (pełne imie) + będne hasło");
+            }
+            else if (results == "4")
+            {
+                MessageBox.Show("Użytkownik istnieje (iniciał) + będne hasło");
+            }
+            else if (results == "5")
+            {
+                MessageBox.Show("Będne hasło");
+            }
+            Console.WriteLine('"'+results+'"');
             File.Delete("result.txt");
         }
     }
