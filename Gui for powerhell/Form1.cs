@@ -16,6 +16,29 @@ namespace Gui_for_powerhell
 {
     public partial class Form1 : Form
     {
+        void Page_switcher(int current_page)
+        {
+            switch (current_page)
+            {
+                case 1:
+                    Credencia_test_panel.Visible = true;
+                    Action_choose_panel.Visible = false;
+                    Back_button.Enabled = false;
+                    break;
+                case 2:
+                    Credencia_test_panel.Visible = false;
+                    Action_choose_panel.Visible = true;
+                    Back_button.Enabled = true;
+                    Next_button.Enabled = false;
+                    break;
+                default:
+                    Console.WriteLine("Page_switcher error");
+                    break;
+
+            }
+        }
+        public int current_page = 1;
+
         public Form1()
         {
             InitializeComponent();
@@ -48,13 +71,12 @@ namespace Gui_for_powerhell
             new_password = '"' + password + '"';
             script_edited = script.Replace("$user_input", new_username).Replace("$pass_input", new_password);
             RunScript(script_edited);
-            //Output_textbox.Text = username + password;
             results = File.ReadAllText("Credencial_result.txt");
             if (results == "1") // Credencials correct
             {
-                
+                Next_button.Enabled = true;
             }
-            else // Credencial false !add popup
+            else // Credencial false
             {
                 MessageBox.Show("Niedostateczne permisje urzytkownika");
             }
@@ -62,14 +84,21 @@ namespace Gui_for_powerhell
             File.Delete("Credencial_result.txt");
         }
 
-        private void Next_button_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void Back_button_Click(object sender, EventArgs e)
         {
-            Close();
+            current_page--;
+            Page_switcher(current_page);
+        }
+
+        private void Next_button_Click(object sender, EventArgs e)
+        {
+            current_page++;
+            Page_switcher(current_page);
+        }
+
+        private void Choose_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Next_button.Enabled = true;
         }
     }
 }
