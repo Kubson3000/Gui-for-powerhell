@@ -16,28 +16,81 @@ namespace Gui_for_powerhell
 {
     public partial class Form1 : Form
     {
+        public int current_page = 1;
+        public int choosen = -1;
+        public string new_imie, new_nazwisko, new_password;
         void Page_switcher(int current_page)
         {
-            switch (current_page)
+            switch (choosen)
             {
-                case 1:
-                    Credencia_test_panel.Visible = true;
-                    Action_choose_panel.Visible = false;
-                    Back_button.Enabled = false;
-                    break;
-                case 2:
-                    Credencia_test_panel.Visible = false;
-                    Action_choose_panel.Visible = true;
-                    Back_button.Enabled = true;
-                    Next_button.Enabled = false;
-                    break;
-                default:
-                    Console.WriteLine("Page_switcher error");
-                    break;
+                case -1:
+                    switch (current_page)
+                    {
+                        case 1:
+                            Main_label.Text = "Wprowadź dane";
+                            Credencia_test_panel.Visible = true;
+                            Action_choose_panel.Visible = false;
+                            Back_button.Enabled = false;
+                            break;
+                        case 2:
+                            Main_label.Text = "Wybierz akcję";
+                            Credencia_test_panel.Visible = false;
+                            Action_choose_panel.Visible = true;
+                            User_name_pass_input.Visible = false;
+                            Back_button.Enabled = true;
+                            Next_button.Enabled = false;
+                            break;
+                        default:
+                            Console.WriteLine("Page_switcher error (-1 defult)");
+                            break;
 
+                    }
+                    break;
+                case 0:
+                    switch (current_page) // Tworzenie nowego użytkownika
+                    {
+                        case 2:
+                            Main_label.Text = "Wybierz akcję";
+                            Credencia_test_panel.Visible = false;
+                            Action_choose_panel.Visible = true;
+                            User_name_pass_input.Visible = false;
+                            Back_button.Enabled = true;
+                            Next_button.Enabled = false;
+                            choosen = -1;
+                            break;
+                        case 3:
+                            Main_label.Text = "Wprowadź dane tworzonego użytkownika";
+                            Action_choose_panel.Visible = false;
+                            User_name_pass_input.Visible = true;
+                            Next_button.Enabled = false;
+                            break;
+                        default:
+                            Console.WriteLine("Page_switcher error (0 defult)");
+                            break;
+                    }
+                    break;
+                case 1: // Kopiowanie przynależności do grup
+                    switch (current_page)
+                    {
+                        case 2:
+                            Main_label.Text = "Wybierz akcję";
+                            Credencia_test_panel.Visible = false;
+                            Action_choose_panel.Visible = true;
+                            User_name_pass_input.Visible = false;
+                            Back_button.Enabled = true;
+                            Next_button.Enabled = false;
+                            choosen = -1;
+                            break;
+                        case 3:
+                            Action_choose_panel.Visible = false;
+                            break;
+                        default:
+                            Console.WriteLine("Page_switcher error (1 defult)");
+                            break;
+                    }
+                    break;
             }
         }
-        public int current_page = 1;
 
         public Form1()
         {
@@ -62,7 +115,7 @@ namespace Gui_for_powerhell
         private void Cred_test_button_Click(object sender, EventArgs e)
         {
             string script_edited, new_username, new_password, results;
-            string path = "script1.ps1";
+            string path = "powershell_functions/credencial_check.ps1";
             string script = File.ReadAllText(path);
             string username, password;
             username = Username_box.Text;
@@ -99,6 +152,55 @@ namespace Gui_for_powerhell
         private void Choose_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Next_button.Enabled = true;
+            choosen = Choose_listbox.SelectedIndex;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Check_new_user_Click(object sender, EventArgs e)
+        {
+            new_imie = new_imie_textbox.Text;
+            new_nazwisko = new_nazwisko_textbox.Text;
+            new_password = new_password_textbox.Text;
+            string imie = '"' + new_imie + '"';
+            string nazwisko = '"' + new_nazwisko + '"';
+            string password = '"' + new_password + '"';
+            string path = "powershell_functions/new_user_name_check.ps1";
+            string script = File.ReadAllText(path);
+            string script_edited = script.Replace("$input1", imie).Replace("$input2", nazwisko).Replace("$input3", password);
+            RunScript(script_edited);
+            string results = File.ReadAllText("result.txt");
+            int res = Convert.ToInt32(results);
+            switch (res) {
+                case 0:
+                    Next_button.Enabled = true;
+                    break;
+                case 1:
+                    MessageBox.Show("Użytkownik istnieje (pełne imie)");
+                    break;
+                case 2:
+                    MessageBox.Show("Użytkownik istnieje (inicial)");
+                    break;
+                case 3:
+                    MessageBox.Show("Użytkownik istnieje (pełne imie) + będne hasło");
+                    break;
+                case 4:
+                    MessageBox.Show("Użytkownik istnieje (iniciał) + będne hasło");
+                    break;
+                case 5:
+                    MessageBox.Show("Będne hasło");
+                    break;
+            }
+            Console.WriteLine(results);
+            File.Delete("result.txt");
         }
     }
 }
