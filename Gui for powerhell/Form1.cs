@@ -18,9 +18,36 @@ namespace Gui_for_powerhell
     {
         public int current_page = 1;
         public int choosen = -1;
-        public string new_imie, new_nazwisko, new_password, ou_list, manager_list;
-        public int ou_number, manager_number;
+        public string new_imie, new_nazwisko, new_password, ou_list, manager_list, title, department, department_number, manager_name, ou_name, username, password, ou_number, manager_number;
 
+        void final_filler ()
+        {
+            final_imie_textbox.Text = new_imie;
+            final_nazwisko_textbox.Text = new_nazwisko;
+            final_haslo_textbox.Text = new_password;
+            final_title_textbox.Text = title;
+            final_department_textbox.Text = department;
+            final_department_number_textbox.Text = department_number;
+        }
+
+        void user_creator ()
+        {
+            string path = "powershell_functions/user_creator.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$input3", new_password).Replace("$input4", title).Replace("$input5", department).Replace("$input6", department_number).Replace("$input7", manager_name).Replace("$input8", manager_number).Replace("$input9", ou_number).Replace("$user_input", username).Replace("$pass_input", password);
+            Console.WriteLine(edited_script);
+            RunScript(edited_script);
+            string result = File.ReadAllText("result.txt");
+            if (result == "1")
+            {
+                MessageBox.Show("Użytkownik został utworzony pomyślnie");
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Błąd podczas tworzenia uzytkownika");
+            }
+        }
         void Ou_search ()
         {
             string path = "powershell_functions/ou_search.ps1";
@@ -99,6 +126,17 @@ namespace Gui_for_powerhell
                             Main_label.Text = "Wporwadź nazwisko menadżera, a następnie wybierz go z listy";
                             Ou_choose_panel.Visible = false;
                             Manager_panel.Visible = true;
+                            User_create_finish_panel.Visible = false;
+                            Next_button.Enabled = false;
+                            Next_button.Text = "Next";
+                            break;
+                        case 6:
+                            Main_label.Text = "Sprwdź dane nowego urzytkownika i w razie potrzyeby je popraw";
+                            Console.WriteLine('"' + manager_name + '"', '"' + manager_number.ToString() + '"', '"' + ou_number.ToString() + '"');
+                            final_filler();
+                            Manager_panel.Visible = false;
+                            User_create_finish_panel.Visible = true;
+                            Next_button.Text = "Finnish";
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (0 defult)");
@@ -133,6 +171,11 @@ namespace Gui_for_powerhell
             InitializeComponent();
         }
 
+        private void manager_textbox_TextChanged(object sender, EventArgs e)
+        {
+            manager_name = manager_textbox.Text;
+        }
+
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
 
@@ -148,12 +191,18 @@ namespace Gui_for_powerhell
             runspace.Close();
         }
 
+        private void Manager_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            manager_number = Manager_listbox.SelectedIndex.ToString();
+            Console.WriteLine(manager_number);
+            Next_button.Enabled = true;
+        }
+
         private void Cred_test_button_Click(object sender, EventArgs e)
         {
             string script_edited, new_username, new_password, results;
             string path = "powershell_functions/credencial_check.ps1";
             string script = File.ReadAllText(path);
-            string username, password;
             username = Username_box.Text;
             password = Password_box.Text;
             new_username = '"' + username + '"';
@@ -173,6 +222,14 @@ namespace Gui_for_powerhell
             File.Delete("Credencial_result.txt");
         }
 
+        private void Atribiute_check_button_Click(object sender, EventArgs e)
+        {
+            title = title_textbox.Text;
+            department = department_textbox.Text;
+            department_number = department_number_textbox.Text;
+            Next_button.Enabled = true;
+        }
+
         private void Back_button_Click(object sender, EventArgs e)
         {
             current_page--;
@@ -181,13 +238,20 @@ namespace Gui_for_powerhell
 
         private void Next_button_Click(object sender, EventArgs e)
         {
-            current_page++;
-            Page_switcher(current_page);
+            if ((choosen == 0) && (current_page == 6)) {
+                user_creator();
+            }
+            else
+            {
+                current_page++;
+                Page_switcher(current_page);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Next_button.Enabled = false;
+            Manager_listbox.Items.Clear();
             string manager_name = manager_textbox.Text;
             manager_name = '"' + manager_name + '"';
             string path = "powershell_functions/manager_search.ps1";
@@ -213,6 +277,7 @@ namespace Gui_for_powerhell
         {
             Next_button.Enabled = true;
             choosen = Choose_listbox.SelectedIndex;
+            Console.WriteLine(choosen.ToString());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -222,7 +287,8 @@ namespace Gui_for_powerhell
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ou_number = Ou_listbox.SelectedIndex;
+            ou_number = Ou_listbox.SelectedIndex.ToString();
+            Console.WriteLine(ou_number.ToString());
             Next_button.Enabled = true;
         }
 
@@ -247,7 +313,6 @@ namespace Gui_for_powerhell
             if (results == "0")
             {
                 Atribiute_editor_panel.Visible = true;
-                Next_button.Enabled = true;
             }
             else if (results == "1")
             {

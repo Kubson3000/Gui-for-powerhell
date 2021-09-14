@@ -43,26 +43,40 @@ namespace Gui_for_powerhell
             this.Action_choose_panel = new System.Windows.Forms.Panel();
             this.Choose_listbox = new System.Windows.Forms.ListBox();
             this.User_name_pass_input = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.new_imie_textbox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.new_nazwisko_textbox = new System.Windows.Forms.TextBox();
-            this.Check_new_user = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.new_password_textbox = new System.Windows.Forms.TextBox();
             this.Atribiute_editor_panel = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Atribiute_check_button = new System.Windows.Forms.Button();
+            this.department_number_textbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.department_textbox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.title_textbox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.new_password_textbox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Check_new_user = new System.Windows.Forms.Button();
+            this.new_nazwisko_textbox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.new_imie_textbox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Ou_choose_panel = new System.Windows.Forms.Panel();
             this.Ou_listbox = new System.Windows.Forms.ListBox();
             this.Manager_panel = new System.Windows.Forms.Panel();
-            this.manager_textbox = new System.Windows.Forms.TextBox();
-            this.Manager_search_button = new System.Windows.Forms.Button();
             this.Manager_listbox = new System.Windows.Forms.ListBox();
+            this.Manager_search_button = new System.Windows.Forms.Button();
+            this.manager_textbox = new System.Windows.Forms.TextBox();
+            this.User_create_finish_panel = new System.Windows.Forms.Panel();
+            this.final_haslo_textbox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.final_nazwisko_textbox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.final_imie_textbox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.final_department_number_textbox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.final_department_textbox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.final_title_textbox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencia_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -71,6 +85,7 @@ namespace Gui_for_powerhell
             this.Atribiute_editor_panel.SuspendLayout();
             this.Ou_choose_panel.SuspendLayout();
             this.Manager_panel.SuspendLayout();
+            this.User_create_finish_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bottom_buttons_panel
@@ -88,6 +103,7 @@ namespace Gui_for_powerhell
             // 
             // Next_button
             // 
+            this.Next_button.Enabled = false;
             this.Next_button.Location = new System.Drawing.Point(717, 3);
             this.Next_button.Name = "Next_button";
             this.Next_button.Size = new System.Drawing.Size(75, 23);
@@ -229,38 +245,95 @@ namespace Gui_for_powerhell
             this.User_name_pass_input.Visible = false;
             this.User_name_pass_input.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
+            // Atribiute_editor_panel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Imię";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.Atribiute_editor_panel.Controls.Add(this.Atribiute_check_button);
+            this.Atribiute_editor_panel.Controls.Add(this.department_number_textbox);
+            this.Atribiute_editor_panel.Controls.Add(this.label8);
+            this.Atribiute_editor_panel.Controls.Add(this.department_textbox);
+            this.Atribiute_editor_panel.Controls.Add(this.label7);
+            this.Atribiute_editor_panel.Controls.Add(this.title_textbox);
+            this.Atribiute_editor_panel.Controls.Add(this.label6);
+            this.Atribiute_editor_panel.Location = new System.Drawing.Point(367, 1);
+            this.Atribiute_editor_panel.Name = "Atribiute_editor_panel";
+            this.Atribiute_editor_panel.Size = new System.Drawing.Size(427, 318);
+            this.Atribiute_editor_panel.TabIndex = 7;
+            this.Atribiute_editor_panel.Visible = false;
             // 
-            // new_imie_textbox
+            // Atribiute_check_button
             // 
-            this.new_imie_textbox.Location = new System.Drawing.Point(85, 48);
-            this.new_imie_textbox.Name = "new_imie_textbox";
-            this.new_imie_textbox.Size = new System.Drawing.Size(100, 22);
-            this.new_imie_textbox.TabIndex = 1;
+            this.Atribiute_check_button.Location = new System.Drawing.Point(125, 169);
+            this.Atribiute_check_button.Name = "Atribiute_check_button";
+            this.Atribiute_check_button.Size = new System.Drawing.Size(75, 23);
+            this.Atribiute_check_button.TabIndex = 8;
+            this.Atribiute_check_button.Text = "Check user";
+            this.Atribiute_check_button.UseVisualStyleBackColor = true;
+            this.Atribiute_check_button.Click += new System.EventHandler(this.Atribiute_check_button_Click);
             // 
-            // label4
+            // department_number_textbox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Nazwisko";
+            this.department_number_textbox.Location = new System.Drawing.Point(109, 125);
+            this.department_number_textbox.Name = "department_number_textbox";
+            this.department_number_textbox.Size = new System.Drawing.Size(100, 22);
+            this.department_number_textbox.TabIndex = 5;
             // 
-            // new_nazwisko_textbox
+            // label8
             // 
-            this.new_nazwisko_textbox.Location = new System.Drawing.Point(85, 88);
-            this.new_nazwisko_textbox.Name = "new_nazwisko_textbox";
-            this.new_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
-            this.new_nazwisko_textbox.TabIndex = 3;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(32, 128);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 16);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Numer MPK";
+            // 
+            // department_textbox
+            // 
+            this.department_textbox.Location = new System.Drawing.Point(109, 87);
+            this.department_textbox.Name = "department_textbox";
+            this.department_textbox.Size = new System.Drawing.Size(100, 22);
+            this.department_textbox.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(32, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 16);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Dział";
+            // 
+            // title_textbox
+            // 
+            this.title_textbox.Location = new System.Drawing.Point(109, 47);
+            this.title_textbox.Name = "title_textbox";
+            this.title_textbox.Size = new System.Drawing.Size(100, 22);
+            this.title_textbox.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 16);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Tytuł";
+            // 
+            // new_password_textbox
+            // 
+            this.new_password_textbox.Location = new System.Drawing.Point(85, 126);
+            this.new_password_textbox.Name = "new_password_textbox";
+            this.new_password_textbox.PasswordChar = '*';
+            this.new_password_textbox.Size = new System.Drawing.Size(100, 22);
+            this.new_password_textbox.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 16);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Hasło";
             // 
             // Check_new_user
             // 
@@ -272,84 +345,38 @@ namespace Gui_for_powerhell
             this.Check_new_user.UseVisualStyleBackColor = true;
             this.Check_new_user.Click += new System.EventHandler(this.Check_new_user_Click);
             // 
-            // label5
+            // new_nazwisko_textbox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 16);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Hasło";
+            this.new_nazwisko_textbox.Location = new System.Drawing.Point(85, 88);
+            this.new_nazwisko_textbox.Name = "new_nazwisko_textbox";
+            this.new_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.new_nazwisko_textbox.TabIndex = 3;
             // 
-            // new_password_textbox
+            // label4
             // 
-            this.new_password_textbox.Location = new System.Drawing.Point(85, 126);
-            this.new_password_textbox.Name = "new_password_textbox";
-            this.new_password_textbox.PasswordChar = '*';
-            this.new_password_textbox.Size = new System.Drawing.Size(100, 22);
-            this.new_password_textbox.TabIndex = 6;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Nazwisko";
             // 
-            // Atribiute_editor_panel
+            // new_imie_textbox
             // 
-            this.Atribiute_editor_panel.Controls.Add(this.textBox3);
-            this.Atribiute_editor_panel.Controls.Add(this.label8);
-            this.Atribiute_editor_panel.Controls.Add(this.textBox2);
-            this.Atribiute_editor_panel.Controls.Add(this.label7);
-            this.Atribiute_editor_panel.Controls.Add(this.textBox1);
-            this.Atribiute_editor_panel.Controls.Add(this.label6);
-            this.Atribiute_editor_panel.Location = new System.Drawing.Point(367, 1);
-            this.Atribiute_editor_panel.Name = "Atribiute_editor_panel";
-            this.Atribiute_editor_panel.Size = new System.Drawing.Size(427, 318);
-            this.Atribiute_editor_panel.TabIndex = 7;
-            this.Atribiute_editor_panel.Visible = false;
+            this.new_imie_textbox.Location = new System.Drawing.Point(85, 48);
+            this.new_imie_textbox.Name = "new_imie_textbox";
+            this.new_imie_textbox.Size = new System.Drawing.Size(100, 22);
+            this.new_imie_textbox.TabIndex = 1;
             // 
-            // label6
+            // label1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 16);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Tytuł";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(109, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(109, 87);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 90);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 16);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Dział";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(109, 125);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 128);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 16);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Numer MPK";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Imię";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Ou_choose_panel
             // 
@@ -381,12 +408,15 @@ namespace Gui_for_powerhell
             this.Manager_panel.TabIndex = 5;
             this.Manager_panel.Visible = false;
             // 
-            // manager_textbox
+            // Manager_listbox
             // 
-            this.manager_textbox.Location = new System.Drawing.Point(16, 4);
-            this.manager_textbox.Name = "manager_textbox";
-            this.manager_textbox.Size = new System.Drawing.Size(691, 22);
-            this.manager_textbox.TabIndex = 0;
+            this.Manager_listbox.FormattingEnabled = true;
+            this.Manager_listbox.ItemHeight = 16;
+            this.Manager_listbox.Location = new System.Drawing.Point(16, 32);
+            this.Manager_listbox.Name = "Manager_listbox";
+            this.Manager_listbox.Size = new System.Drawing.Size(772, 276);
+            this.Manager_listbox.TabIndex = 2;
+            this.Manager_listbox.SelectedIndexChanged += new System.EventHandler(this.Manager_listbox_SelectedIndexChanged);
             // 
             // Manager_search_button
             // 
@@ -398,14 +428,130 @@ namespace Gui_for_powerhell
             this.Manager_search_button.UseVisualStyleBackColor = true;
             this.Manager_search_button.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Manager_listbox
+            // manager_textbox
             // 
-            this.Manager_listbox.FormattingEnabled = true;
-            this.Manager_listbox.ItemHeight = 16;
-            this.Manager_listbox.Location = new System.Drawing.Point(16, 32);
-            this.Manager_listbox.Name = "Manager_listbox";
-            this.Manager_listbox.Size = new System.Drawing.Size(772, 276);
-            this.Manager_listbox.TabIndex = 2;
+            this.manager_textbox.Location = new System.Drawing.Point(16, 4);
+            this.manager_textbox.Name = "manager_textbox";
+            this.manager_textbox.Size = new System.Drawing.Size(691, 22);
+            this.manager_textbox.TabIndex = 0;
+            this.manager_textbox.TextChanged += new System.EventHandler(this.manager_textbox_TextChanged);
+            // 
+            // User_create_finish_panel
+            // 
+            this.User_create_finish_panel.Controls.Add(this.final_haslo_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label9);
+            this.User_create_finish_panel.Controls.Add(this.final_nazwisko_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label10);
+            this.User_create_finish_panel.Controls.Add(this.final_imie_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label11);
+            this.User_create_finish_panel.Controls.Add(this.final_department_number_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label12);
+            this.User_create_finish_panel.Controls.Add(this.final_department_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label13);
+            this.User_create_finish_panel.Controls.Add(this.final_title_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label14);
+            this.User_create_finish_panel.Location = new System.Drawing.Point(0, 66);
+            this.User_create_finish_panel.Name = "User_create_finish_panel";
+            this.User_create_finish_panel.Size = new System.Drawing.Size(797, 319);
+            this.User_create_finish_panel.TabIndex = 6;
+            this.User_create_finish_panel.Visible = false;
+            // 
+            // final_haslo_textbox
+            // 
+            this.final_haslo_textbox.Location = new System.Drawing.Point(96, 88);
+            this.final_haslo_textbox.Name = "final_haslo_textbox";
+            this.final_haslo_textbox.PasswordChar = '*';
+            this.final_haslo_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_haslo_textbox.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 91);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 16);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Hasło";
+            // 
+            // final_nazwisko_textbox
+            // 
+            this.final_nazwisko_textbox.Location = new System.Drawing.Point(96, 50);
+            this.final_nazwisko_textbox.Name = "final_nazwisko_textbox";
+            this.final_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_nazwisko_textbox.TabIndex = 13;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 53);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 16);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Nazwisko";
+            // 
+            // final_imie_textbox
+            // 
+            this.final_imie_textbox.Location = new System.Drawing.Point(96, 10);
+            this.final_imie_textbox.Name = "final_imie_textbox";
+            this.final_imie_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_imie_textbox.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(33, 16);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Imię";
+            // 
+            // final_department_number_textbox
+            // 
+            this.final_department_number_textbox.Location = new System.Drawing.Point(96, 199);
+            this.final_department_number_textbox.Name = "final_department_number_textbox";
+            this.final_department_number_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_department_number_textbox.TabIndex = 17;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 202);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 16);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Numer MPK";
+            // 
+            // final_department_textbox
+            // 
+            this.final_department_textbox.Location = new System.Drawing.Point(96, 161);
+            this.final_department_textbox.Name = "final_department_textbox";
+            this.final_department_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_department_textbox.TabIndex = 14;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 164);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 16);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Dział";
+            // 
+            // final_title_textbox
+            // 
+            this.final_title_textbox.Location = new System.Drawing.Point(96, 121);
+            this.final_title_textbox.Name = "final_title_textbox";
+            this.final_title_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_title_textbox.TabIndex = 10;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(8, 124);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 16);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Tytuł";
             // 
             // Form1
             // 
@@ -414,8 +560,9 @@ namespace Gui_for_powerhell
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Manager_panel);
             this.Controls.Add(this.Ou_choose_panel);
-            this.Controls.Add(this.User_name_pass_input);
+            this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.Credencia_test_panel);
+            this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.Action_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
@@ -435,6 +582,8 @@ namespace Gui_for_powerhell
             this.Ou_choose_panel.ResumeLayout(false);
             this.Manager_panel.ResumeLayout(false);
             this.Manager_panel.PerformLayout();
+            this.User_create_finish_panel.ResumeLayout(false);
+            this.User_create_finish_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -462,11 +611,11 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox new_imie_textbox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox department_number_textbox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox department_textbox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox title_textbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel Ou_choose_panel;
         private System.Windows.Forms.ListBox Ou_listbox;
@@ -474,6 +623,20 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.ListBox Manager_listbox;
         private System.Windows.Forms.Button Manager_search_button;
         private System.Windows.Forms.TextBox manager_textbox;
+        private System.Windows.Forms.Panel User_create_finish_panel;
+        private System.Windows.Forms.Button Atribiute_check_button;
+        private System.Windows.Forms.TextBox final_haslo_textbox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox final_nazwisko_textbox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox final_imie_textbox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox final_department_number_textbox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox final_department_textbox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox final_title_textbox;
+        private System.Windows.Forms.Label label14;
     }
 }
 
