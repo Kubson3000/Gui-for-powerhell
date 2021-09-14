@@ -9,6 +9,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +19,7 @@ namespace Gui_for_powerhell
     {
         public int current_page = 1;
         public int choosen = -1;
-        public string new_imie, new_nazwisko, new_password, ou_list, manager_list, title, department, department_number, manager_name, ou_name, username, password, ou_number, manager_number;
+        public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
 
         void final_filler ()
         {
@@ -28,6 +29,8 @@ namespace Gui_for_powerhell
             final_title_textbox.Text = title;
             final_department_textbox.Text = department;
             final_department_number_textbox.Text = department_number;
+            final_manager_textbox.Text = manager_fullname;
+            final_ou_fullname_textbox.Text = ou_fullname;
         }
 
         void user_creator ()
@@ -47,6 +50,7 @@ namespace Gui_for_powerhell
             {
                 MessageBox.Show("Błąd podczas tworzenia uzytkownika");
             }
+            File.Delete("result.txt");
         }
         void Ou_search ()
         {
@@ -77,13 +81,13 @@ namespace Gui_for_powerhell
                     {
                         case 1:
                             Main_label.Text = "Wprowadź dane";
-                            Credencia_test_panel.Visible = true;
+                            Credencials_test_panel.Visible = true;
                             Action_choose_panel.Visible = false;
                             Back_button.Enabled = false;
                             break;
                         case 2:
                             Main_label.Text = "Wybierz akcję";
-                            Credencia_test_panel.Visible = false;
+                            Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
                             Back_button.Enabled = true;
@@ -100,7 +104,7 @@ namespace Gui_for_powerhell
                     {
                         case 2:
                             Main_label.Text = "Wybierz akcję";
-                            Credencia_test_panel.Visible = false;
+                            Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
                             Back_button.Enabled = true;
@@ -148,7 +152,7 @@ namespace Gui_for_powerhell
                     {
                         case 2:
                             Main_label.Text = "Wybierz akcję";
-                            Credencia_test_panel.Visible = false;
+                            Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
                             Back_button.Enabled = true;
@@ -194,6 +198,7 @@ namespace Gui_for_powerhell
         private void Manager_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             manager_number = Manager_listbox.SelectedIndex.ToString();
+            manager_fullname = Manager_listbox.SelectedItem.ToString();
             Console.WriteLine(manager_number);
             Next_button.Enabled = true;
         }
@@ -227,7 +232,15 @@ namespace Gui_for_powerhell
             title = title_textbox.Text;
             department = department_textbox.Text;
             department_number = department_number_textbox.Text;
-            Next_button.Enabled = true;
+            Regex rgx = new Regex(@"^[0-9]{3}-[0-9]{2}$");
+            if (rgx.IsMatch(department_number))
+            {
+                Next_button.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Numer MPK jest nieprawidłowy, format prawidłowego numeru xxx-xx");
+            }
         }
 
         private void Back_button_Click(object sender, EventArgs e)
@@ -288,6 +301,7 @@ namespace Gui_for_powerhell
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ou_number = Ou_listbox.SelectedIndex.ToString();
+            ou_fullname = Ou_listbox.SelectedItem.ToString();
             Console.WriteLine(ou_number.ToString());
             Next_button.Enabled = true;
         }

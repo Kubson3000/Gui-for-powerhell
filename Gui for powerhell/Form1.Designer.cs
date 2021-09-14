@@ -33,7 +33,7 @@ namespace Gui_for_powerhell
             this.Next_button = new System.Windows.Forms.Button();
             this.Back_button = new System.Windows.Forms.Button();
             this.Cred_test_button = new System.Windows.Forms.Button();
-            this.Credencia_test_panel = new System.Windows.Forms.Panel();
+            this.Credencials_test_panel = new System.Windows.Forms.Panel();
             this.Username_box = new System.Windows.Forms.TextBox();
             this.Password_box = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,8 +77,12 @@ namespace Gui_for_powerhell
             this.label13 = new System.Windows.Forms.Label();
             this.final_title_textbox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.final_ou_fullname_textbox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.final_manager_textbox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.Bottom_buttons_panel.SuspendLayout();
-            this.Credencia_test_panel.SuspendLayout();
+            this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.Action_choose_panel.SuspendLayout();
             this.User_name_pass_input.SuspendLayout();
@@ -107,7 +111,7 @@ namespace Gui_for_powerhell
             this.Next_button.Location = new System.Drawing.Point(717, 3);
             this.Next_button.Name = "Next_button";
             this.Next_button.Size = new System.Drawing.Size(75, 23);
-            this.Next_button.TabIndex = 2;
+            this.Next_button.TabIndex = 9;
             this.Next_button.Text = "Next";
             this.Next_button.UseVisualStyleBackColor = true;
             this.Next_button.Click += new System.EventHandler(this.Next_button_Click);
@@ -119,7 +123,7 @@ namespace Gui_for_powerhell
             this.Back_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Back_button.Name = "Back_button";
             this.Back_button.Size = new System.Drawing.Size(75, 23);
-            this.Back_button.TabIndex = 1;
+            this.Back_button.TabIndex = 10;
             this.Back_button.Text = "Back";
             this.Back_button.UseVisualStyleBackColor = true;
             this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
@@ -131,23 +135,23 @@ namespace Gui_for_powerhell
             this.Cred_test_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Cred_test_button.Name = "Cred_test_button";
             this.Cred_test_button.Size = new System.Drawing.Size(124, 23);
-            this.Cred_test_button.TabIndex = 0;
-            this.Cred_test_button.Text = "Test Credencias";
+            this.Cred_test_button.TabIndex = 2;
+            this.Cred_test_button.Text = "Test Credencials";
             this.Cred_test_button.UseVisualStyleBackColor = true;
             this.Cred_test_button.Click += new System.EventHandler(this.Cred_test_button_Click);
             // 
-            // Credencia_test_panel
+            // Credencials_test_panel
             // 
-            this.Credencia_test_panel.Controls.Add(this.Cred_test_button);
-            this.Credencia_test_panel.Controls.Add(this.Username_box);
-            this.Credencia_test_panel.Controls.Add(this.Password_box);
-            this.Credencia_test_panel.Controls.Add(this.label2);
-            this.Credencia_test_panel.Controls.Add(this.label3);
-            this.Credencia_test_panel.Location = new System.Drawing.Point(0, 66);
-            this.Credencia_test_panel.Margin = new System.Windows.Forms.Padding(4);
-            this.Credencia_test_panel.Name = "Credencia_test_panel";
-            this.Credencia_test_panel.Size = new System.Drawing.Size(797, 319);
-            this.Credencia_test_panel.TabIndex = 0;
+            this.Credencials_test_panel.Controls.Add(this.Cred_test_button);
+            this.Credencials_test_panel.Controls.Add(this.Username_box);
+            this.Credencials_test_panel.Controls.Add(this.Password_box);
+            this.Credencials_test_panel.Controls.Add(this.label2);
+            this.Credencials_test_panel.Controls.Add(this.label3);
+            this.Credencials_test_panel.Location = new System.Drawing.Point(0, 66);
+            this.Credencials_test_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Credencials_test_panel.Name = "Credencials_test_panel";
+            this.Credencials_test_panel.Size = new System.Drawing.Size(797, 319);
+            this.Credencials_test_panel.TabIndex = 0;
             // 
             // Username_box
             // 
@@ -155,7 +159,7 @@ namespace Gui_for_powerhell
             this.Username_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Username_box.Name = "Username_box";
             this.Username_box.Size = new System.Drawing.Size(189, 22);
-            this.Username_box.TabIndex = 6;
+            this.Username_box.TabIndex = 0;
             // 
             // Password_box
             // 
@@ -164,7 +168,7 @@ namespace Gui_for_powerhell
             this.Password_box.Name = "Password_box";
             this.Password_box.PasswordChar = '*';
             this.Password_box.Size = new System.Drawing.Size(189, 22);
-            this.Password_box.TabIndex = 7;
+            this.Password_box.TabIndex = 1;
             // 
             // label2
             // 
@@ -265,7 +269,7 @@ namespace Gui_for_powerhell
             this.Atribiute_check_button.Location = new System.Drawing.Point(125, 169);
             this.Atribiute_check_button.Name = "Atribiute_check_button";
             this.Atribiute_check_button.Size = new System.Drawing.Size(75, 23);
-            this.Atribiute_check_button.TabIndex = 8;
+            this.Atribiute_check_button.TabIndex = 7;
             this.Atribiute_check_button.Text = "Check user";
             this.Atribiute_check_button.UseVisualStyleBackColor = true;
             this.Atribiute_check_button.Click += new System.EventHandler(this.Atribiute_check_button_Click);
@@ -275,7 +279,7 @@ namespace Gui_for_powerhell
             this.department_number_textbox.Location = new System.Drawing.Point(109, 125);
             this.department_number_textbox.Name = "department_number_textbox";
             this.department_number_textbox.Size = new System.Drawing.Size(100, 22);
-            this.department_number_textbox.TabIndex = 5;
+            this.department_number_textbox.TabIndex = 6;
             // 
             // label8
             // 
@@ -291,7 +295,7 @@ namespace Gui_for_powerhell
             this.department_textbox.Location = new System.Drawing.Point(109, 87);
             this.department_textbox.Name = "department_textbox";
             this.department_textbox.Size = new System.Drawing.Size(100, 22);
-            this.department_textbox.TabIndex = 3;
+            this.department_textbox.TabIndex = 5;
             // 
             // label7
             // 
@@ -307,7 +311,7 @@ namespace Gui_for_powerhell
             this.title_textbox.Location = new System.Drawing.Point(109, 47);
             this.title_textbox.Name = "title_textbox";
             this.title_textbox.Size = new System.Drawing.Size(100, 22);
-            this.title_textbox.TabIndex = 1;
+            this.title_textbox.TabIndex = 4;
             // 
             // label6
             // 
@@ -324,7 +328,7 @@ namespace Gui_for_powerhell
             this.new_password_textbox.Name = "new_password_textbox";
             this.new_password_textbox.PasswordChar = '*';
             this.new_password_textbox.Size = new System.Drawing.Size(100, 22);
-            this.new_password_textbox.TabIndex = 6;
+            this.new_password_textbox.TabIndex = 2;
             // 
             // label5
             // 
@@ -340,7 +344,7 @@ namespace Gui_for_powerhell
             this.Check_new_user.Location = new System.Drawing.Point(96, 170);
             this.Check_new_user.Name = "Check_new_user";
             this.Check_new_user.Size = new System.Drawing.Size(75, 23);
-            this.Check_new_user.TabIndex = 4;
+            this.Check_new_user.TabIndex = 3;
             this.Check_new_user.Text = "Check user";
             this.Check_new_user.UseVisualStyleBackColor = true;
             this.Check_new_user.Click += new System.EventHandler(this.Check_new_user_Click);
@@ -350,7 +354,7 @@ namespace Gui_for_powerhell
             this.new_nazwisko_textbox.Location = new System.Drawing.Point(85, 88);
             this.new_nazwisko_textbox.Name = "new_nazwisko_textbox";
             this.new_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
-            this.new_nazwisko_textbox.TabIndex = 3;
+            this.new_nazwisko_textbox.TabIndex = 1;
             // 
             // label4
             // 
@@ -366,7 +370,7 @@ namespace Gui_for_powerhell
             this.new_imie_textbox.Location = new System.Drawing.Point(85, 48);
             this.new_imie_textbox.Name = "new_imie_textbox";
             this.new_imie_textbox.Size = new System.Drawing.Size(100, 22);
-            this.new_imie_textbox.TabIndex = 1;
+            this.new_imie_textbox.TabIndex = 0;
             // 
             // label1
             // 
@@ -438,6 +442,10 @@ namespace Gui_for_powerhell
             // 
             // User_create_finish_panel
             // 
+            this.User_create_finish_panel.Controls.Add(this.final_ou_fullname_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label15);
+            this.User_create_finish_panel.Controls.Add(this.final_manager_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label16);
             this.User_create_finish_panel.Controls.Add(this.final_haslo_textbox);
             this.User_create_finish_panel.Controls.Add(this.label9);
             this.User_create_finish_panel.Controls.Add(this.final_nazwisko_textbox);
@@ -462,7 +470,7 @@ namespace Gui_for_powerhell
             this.final_haslo_textbox.Name = "final_haslo_textbox";
             this.final_haslo_textbox.PasswordChar = '*';
             this.final_haslo_textbox.Size = new System.Drawing.Size(100, 22);
-            this.final_haslo_textbox.TabIndex = 18;
+            this.final_haslo_textbox.TabIndex = 2;
             // 
             // label9
             // 
@@ -478,7 +486,7 @@ namespace Gui_for_powerhell
             this.final_nazwisko_textbox.Location = new System.Drawing.Point(96, 50);
             this.final_nazwisko_textbox.Name = "final_nazwisko_textbox";
             this.final_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
-            this.final_nazwisko_textbox.TabIndex = 13;
+            this.final_nazwisko_textbox.TabIndex = 1;
             // 
             // label10
             // 
@@ -494,7 +502,7 @@ namespace Gui_for_powerhell
             this.final_imie_textbox.Location = new System.Drawing.Point(96, 10);
             this.final_imie_textbox.Name = "final_imie_textbox";
             this.final_imie_textbox.Size = new System.Drawing.Size(100, 22);
-            this.final_imie_textbox.TabIndex = 9;
+            this.final_imie_textbox.TabIndex = 0;
             // 
             // label11
             // 
@@ -510,7 +518,7 @@ namespace Gui_for_powerhell
             this.final_department_number_textbox.Location = new System.Drawing.Point(96, 199);
             this.final_department_number_textbox.Name = "final_department_number_textbox";
             this.final_department_number_textbox.Size = new System.Drawing.Size(100, 22);
-            this.final_department_number_textbox.TabIndex = 17;
+            this.final_department_number_textbox.TabIndex = 5;
             // 
             // label12
             // 
@@ -526,7 +534,7 @@ namespace Gui_for_powerhell
             this.final_department_textbox.Location = new System.Drawing.Point(96, 161);
             this.final_department_textbox.Name = "final_department_textbox";
             this.final_department_textbox.Size = new System.Drawing.Size(100, 22);
-            this.final_department_textbox.TabIndex = 14;
+            this.final_department_textbox.TabIndex = 4;
             // 
             // label13
             // 
@@ -542,7 +550,7 @@ namespace Gui_for_powerhell
             this.final_title_textbox.Location = new System.Drawing.Point(96, 121);
             this.final_title_textbox.Name = "final_title_textbox";
             this.final_title_textbox.Size = new System.Drawing.Size(100, 22);
-            this.final_title_textbox.TabIndex = 10;
+            this.final_title_textbox.TabIndex = 3;
             // 
             // label14
             // 
@@ -553,25 +561,59 @@ namespace Gui_for_powerhell
             this.label14.TabIndex = 8;
             this.label14.Text = "Tytuł";
             // 
+            // final_ou_fullname_textbox
+            // 
+            this.final_ou_fullname_textbox.Enabled = false;
+            this.final_ou_fullname_textbox.Location = new System.Drawing.Point(371, 50);
+            this.final_ou_fullname_textbox.Name = "final_ou_fullname_textbox";
+            this.final_ou_fullname_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_ou_fullname_textbox.TabIndex = 22;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(288, 53);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(28, 16);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "OU";
+            // 
+            // final_manager_textbox
+            // 
+            this.final_manager_textbox.Enabled = false;
+            this.final_manager_textbox.Location = new System.Drawing.Point(371, 10);
+            this.final_manager_textbox.Name = "final_manager_textbox";
+            this.final_manager_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_manager_textbox.TabIndex = 20;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(288, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 16);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Menedżer";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Manager_panel);
-            this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.User_create_finish_panel);
-            this.Controls.Add(this.Credencia_test_panel);
-            this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.Action_choose_panel);
+            this.Controls.Add(this.Manager_panel);
+            this.Controls.Add(this.User_name_pass_input);
+            this.Controls.Add(this.Credencials_test_panel);
+            this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "AD helper";
             this.Bottom_buttons_panel.ResumeLayout(false);
-            this.Credencia_test_panel.ResumeLayout(false);
-            this.Credencia_test_panel.PerformLayout();
+            this.Credencials_test_panel.ResumeLayout(false);
+            this.Credencials_test_panel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.Action_choose_panel.ResumeLayout(false);
@@ -592,7 +634,7 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.FlowLayoutPanel Bottom_buttons_panel;
         private System.Windows.Forms.Button Back_button;
         private System.Windows.Forms.Button Cred_test_button;
-        private System.Windows.Forms.Panel Credencia_test_panel;
+        private System.Windows.Forms.Panel Credencials_test_panel;
         private System.Windows.Forms.TextBox Username_box;
         private System.Windows.Forms.TextBox Password_box;
         private System.Windows.Forms.Label label2;
@@ -637,6 +679,10 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox final_title_textbox;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox final_ou_fullname_textbox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox final_manager_textbox;
+        private System.Windows.Forms.Label label16;
     }
 }
 

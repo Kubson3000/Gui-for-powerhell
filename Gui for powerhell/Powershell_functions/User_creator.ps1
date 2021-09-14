@@ -62,4 +62,4 @@ else {
     Add-ADGroupMember -Identity "Korona Candles INC" -Members $samusername -Credential $user_credentials
 }
 Get-ADUser -Identity $samusername | Move-ADObject -TargetPath $oufinal -Credential $user_credentials
-New-Item -Name "resut.txt" -Value "1" -Force
+New-Item -Name "result.txt" -Value "1" -Force
