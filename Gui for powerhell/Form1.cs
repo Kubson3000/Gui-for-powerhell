@@ -18,7 +18,8 @@ namespace Gui_for_powerhell
     {
         public int current_page = 1;
         public int choosen = -1;
-        public string new_imie, new_nazwisko, new_password, ou_list;
+        public string new_imie, new_nazwisko, new_password, ou_list, manager_list;
+        public int ou_number, manager_number;
 
         void Ou_search ()
         {
@@ -37,6 +38,7 @@ namespace Gui_for_powerhell
                 }
                 else { break; }
             }
+            File.Delete("result.txt");
         }
 
         void Page_switcher(int current_page)
@@ -90,6 +92,13 @@ namespace Gui_for_powerhell
                             Main_label.Text = "Wyszukaj i wybierz grupę w której zostanie utworzony nowy użytkownik.";
                             User_name_pass_input.Visible = false;
                             Ou_choose_panel.Visible = true;
+                            Manager_panel.Visible = false;
+                            Next_button.Enabled = false;
+                            break;
+                        case 5:
+                            Main_label.Text = "Wporwadź nazwisko menadżera, a następnie wybierz go z listy";
+                            Ou_choose_panel.Visible = false;
+                            Manager_panel.Visible = true;
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (0 defult)");
@@ -176,6 +185,30 @@ namespace Gui_for_powerhell
             Page_switcher(current_page);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Next_button.Enabled = false;
+            string manager_name = manager_textbox.Text;
+            manager_name = '"' + manager_name + '"';
+            string path = "powershell_functions/manager_search.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", manager_name);
+            RunScript(edited_script);
+            string manager_list = File.ReadAllText("result.txt");
+            StringReader strReader = new StringReader(manager_list);
+            Console.WriteLine("Managerlist " + manager_list);
+            while (true)
+            {
+                string temp = strReader.ReadLine();
+                if (temp != null)
+                {
+                    Manager_listbox.Items.Add(temp);
+                }
+                else { break; }
+            }
+            File.Delete("result.txt");
+        }
+
         private void Choose_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Next_button.Enabled = true;
@@ -189,7 +222,8 @@ namespace Gui_for_powerhell
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ou_number = Ou_listbox.SelectedIndex;
+            Next_button.Enabled = true;
         }
 
         private void label1_Click(object sender, EventArgs e)

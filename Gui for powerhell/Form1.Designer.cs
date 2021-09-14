@@ -59,6 +59,10 @@ namespace Gui_for_powerhell
             this.label8 = new System.Windows.Forms.Label();
             this.Ou_choose_panel = new System.Windows.Forms.Panel();
             this.Ou_listbox = new System.Windows.Forms.ListBox();
+            this.Manager_panel = new System.Windows.Forms.Panel();
+            this.manager_textbox = new System.Windows.Forms.TextBox();
+            this.Manager_search_button = new System.Windows.Forms.Button();
+            this.Manager_listbox = new System.Windows.Forms.ListBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencia_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -66,6 +70,7 @@ namespace Gui_for_powerhell
             this.User_name_pass_input.SuspendLayout();
             this.Atribiute_editor_panel.SuspendLayout();
             this.Ou_choose_panel.SuspendLayout();
+            this.Manager_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bottom_buttons_panel
@@ -365,11 +370,49 @@ namespace Gui_for_powerhell
             this.Ou_listbox.TabIndex = 0;
             this.Ou_listbox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // Manager_panel
+            // 
+            this.Manager_panel.Controls.Add(this.Manager_listbox);
+            this.Manager_panel.Controls.Add(this.Manager_search_button);
+            this.Manager_panel.Controls.Add(this.manager_textbox);
+            this.Manager_panel.Location = new System.Drawing.Point(0, 66);
+            this.Manager_panel.Name = "Manager_panel";
+            this.Manager_panel.Size = new System.Drawing.Size(797, 319);
+            this.Manager_panel.TabIndex = 5;
+            this.Manager_panel.Visible = false;
+            // 
+            // manager_textbox
+            // 
+            this.manager_textbox.Location = new System.Drawing.Point(16, 4);
+            this.manager_textbox.Name = "manager_textbox";
+            this.manager_textbox.Size = new System.Drawing.Size(691, 22);
+            this.manager_textbox.TabIndex = 0;
+            // 
+            // Manager_search_button
+            // 
+            this.Manager_search_button.Location = new System.Drawing.Point(713, 3);
+            this.Manager_search_button.Name = "Manager_search_button";
+            this.Manager_search_button.Size = new System.Drawing.Size(75, 23);
+            this.Manager_search_button.TabIndex = 1;
+            this.Manager_search_button.Text = "Search";
+            this.Manager_search_button.UseVisualStyleBackColor = true;
+            this.Manager_search_button.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Manager_listbox
+            // 
+            this.Manager_listbox.FormattingEnabled = true;
+            this.Manager_listbox.ItemHeight = 16;
+            this.Manager_listbox.Location = new System.Drawing.Point(16, 32);
+            this.Manager_listbox.Name = "Manager_listbox";
+            this.Manager_listbox.Size = new System.Drawing.Size(772, 276);
+            this.Manager_listbox.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Manager_panel);
             this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.Credencia_test_panel);
@@ -390,6 +433,8 @@ namespace Gui_for_powerhell
             this.Atribiute_editor_panel.ResumeLayout(false);
             this.Atribiute_editor_panel.PerformLayout();
             this.Ou_choose_panel.ResumeLayout(false);
+            this.Manager_panel.ResumeLayout(false);
+            this.Manager_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -425,6 +470,10 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel Ou_choose_panel;
         private System.Windows.Forms.ListBox Ou_listbox;
+        private System.Windows.Forms.Panel Manager_panel;
+        private System.Windows.Forms.ListBox Manager_listbox;
+        private System.Windows.Forms.Button Manager_search_button;
+        private System.Windows.Forms.TextBox manager_textbox;
     }
 }
 
