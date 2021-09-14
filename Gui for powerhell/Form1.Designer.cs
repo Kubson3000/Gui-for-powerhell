@@ -81,6 +81,12 @@ namespace Gui_for_powerhell
             this.label15 = new System.Windows.Forms.Label();
             this.final_manager_textbox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.User_donor_search_panel = new System.Windows.Forms.Panel();
+            this.Donor_search_button = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Donor_nazwisko_textbox = new System.Windows.Forms.TextBox();
+            this.Donor_listbox = new System.Windows.Forms.ListBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -90,6 +96,7 @@ namespace Gui_for_powerhell
             this.Ou_choose_panel.SuspendLayout();
             this.Manager_panel.SuspendLayout();
             this.User_create_finish_panel.SuspendLayout();
+            this.User_donor_search_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bottom_buttons_panel
@@ -107,7 +114,6 @@ namespace Gui_for_powerhell
             // 
             // Next_button
             // 
-            this.Next_button.Enabled = false;
             this.Next_button.Location = new System.Drawing.Point(717, 3);
             this.Next_button.Name = "Next_button";
             this.Next_button.Size = new System.Drawing.Size(75, 23);
@@ -595,11 +601,69 @@ namespace Gui_for_powerhell
             this.label16.TabIndex = 19;
             this.label16.Text = "Menedżer";
             // 
+            // User_donor_search_panel
+            // 
+            this.User_donor_search_panel.Controls.Add(this.Donor_listbox);
+            this.User_donor_search_panel.Controls.Add(this.label18);
+            this.User_donor_search_panel.Controls.Add(this.Donor_nazwisko_textbox);
+            this.User_donor_search_panel.Controls.Add(this.label17);
+            this.User_donor_search_panel.Controls.Add(this.Donor_search_button);
+            this.User_donor_search_panel.Location = new System.Drawing.Point(0, 66);
+            this.User_donor_search_panel.Name = "User_donor_search_panel";
+            this.User_donor_search_panel.Size = new System.Drawing.Size(797, 319);
+            this.User_donor_search_panel.TabIndex = 7;
+            this.User_donor_search_panel.Visible = false;
+            // 
+            // Donor_search_button
+            // 
+            this.Donor_search_button.Location = new System.Drawing.Point(110, 44);
+            this.Donor_search_button.Name = "Donor_search_button";
+            this.Donor_search_button.Size = new System.Drawing.Size(75, 23);
+            this.Donor_search_button.TabIndex = 1;
+            this.Donor_search_button.Text = "Search";
+            this.Donor_search_button.UseVisualStyleBackColor = true;
+            this.Donor_search_button.Click += new System.EventHandler(this.Donor_search_button_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(0, 16);
+            this.label17.TabIndex = 2;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(13, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(66, 16);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Nazwisko";
+            // 
+            // Donor_nazwisko_textbox
+            // 
+            this.Donor_nazwisko_textbox.Location = new System.Drawing.Point(96, 10);
+            this.Donor_nazwisko_textbox.Name = "Donor_nazwisko_textbox";
+            this.Donor_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.Donor_nazwisko_textbox.TabIndex = 3;
+            // 
+            // Donor_listbox
+            // 
+            this.Donor_listbox.FormattingEnabled = true;
+            this.Donor_listbox.ItemHeight = 16;
+            this.Donor_listbox.Location = new System.Drawing.Point(202, 4);
+            this.Donor_listbox.Name = "Donor_listbox";
+            this.Donor_listbox.Size = new System.Drawing.Size(589, 308);
+            this.Donor_listbox.TabIndex = 5;
+            this.Donor_listbox.SelectedIndexChanged += new System.EventHandler(this.Donor_listbox_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.User_donor_search_panel);
             this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.Action_choose_panel);
             this.Controls.Add(this.Manager_panel);
@@ -626,6 +690,8 @@ namespace Gui_for_powerhell
             this.Manager_panel.PerformLayout();
             this.User_create_finish_panel.ResumeLayout(false);
             this.User_create_finish_panel.PerformLayout();
+            this.User_donor_search_panel.ResumeLayout(false);
+            this.User_donor_search_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -683,6 +749,12 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox final_manager_textbox;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel User_donor_search_panel;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox Donor_nazwisko_textbox;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button Donor_search_button;
+        private System.Windows.Forms.ListBox Donor_listbox;
     }
 }
 

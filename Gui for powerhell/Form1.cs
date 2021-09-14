@@ -20,6 +20,7 @@ namespace Gui_for_powerhell
         public int current_page = 1;
         public int choosen = -1;
         public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
+        public string donor_nazwisko, donor_number;
 
         void final_filler ()
         {
@@ -155,12 +156,16 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
+                            User_donor_search_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             choosen = -1;
                             break;
                         case 3:
+                            Main_label.Text = "Wpisz nazwisko 'dawcy', a następnie wybierz go z listy";
                             Action_choose_panel.Visible = false;
+                            User_donor_search_panel.Visible = true;
+                            Next_button.Enabled = false;
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (1 defult)");
@@ -168,6 +173,41 @@ namespace Gui_for_powerhell
                     }
                     break;
             }
+        }
+
+        private void Donor_search_button_Click(object sender, EventArgs e)
+        {
+            donor_nazwisko = Donor_nazwisko_textbox.Text;
+            Regex rgx = new Regex(@"^[\p{L}]+$");
+            if (rgx.IsMatch(donor_nazwisko))
+            {
+                string path = "powershell_functions/user_search.ps1";
+                string script = File.ReadAllText(path);
+                string edited_script = script.Replace("$input1", donor_nazwisko);
+                RunScript(edited_script);
+                string resut = File.ReadAllText("result.txt");
+                StringReader strReader = new StringReader(resut);
+                while (true)
+                {
+                    string temp = strReader.ReadLine();
+                    if (temp != null)
+                    {
+                        Donor_listbox.Items.Add(temp);
+                    }
+                    else { break; }
+                }
+                File.Delete("result.txt");
+            }
+            else
+            {
+                MessageBox.Show("Nazwisko zawiera zakazane symbole");
+            }
+        }
+
+        private void Donor_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            donor_number = Donor_listbox.SelectedIndex.ToString();
+            Next_button.Enabled = true;
         }
 
         public Form1()

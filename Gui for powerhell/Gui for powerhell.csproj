@@ -74,6 +74,9 @@
     <None Include="Powershell_functions\Manager_search.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Powershell_functions\User_search.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Powershell_functions\User_creator.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
