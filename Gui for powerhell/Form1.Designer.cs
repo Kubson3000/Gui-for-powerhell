@@ -87,6 +87,11 @@ namespace Gui_for_powerhell
             this.label18 = new System.Windows.Forms.Label();
             this.Donor_nazwisko_textbox = new System.Windows.Forms.TextBox();
             this.Donor_listbox = new System.Windows.Forms.ListBox();
+            this.Reciver_search_panel = new System.Windows.Forms.Panel();
+            this.Reciver_listbox = new System.Windows.Forms.ListBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Reciver_nazwisko_textbox = new System.Windows.Forms.TextBox();
+            this.Reciver_search_button = new System.Windows.Forms.Button();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -97,6 +102,7 @@ namespace Gui_for_powerhell
             this.Manager_panel.SuspendLayout();
             this.User_create_finish_panel.SuspendLayout();
             this.User_donor_search_panel.SuspendLayout();
+            this.Reciver_search_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bottom_buttons_panel
@@ -646,7 +652,7 @@ namespace Gui_for_powerhell
             this.Donor_nazwisko_textbox.Location = new System.Drawing.Point(96, 10);
             this.Donor_nazwisko_textbox.Name = "Donor_nazwisko_textbox";
             this.Donor_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
-            this.Donor_nazwisko_textbox.TabIndex = 3;
+            this.Donor_nazwisko_textbox.TabIndex = 0;
             // 
             // Donor_listbox
             // 
@@ -655,8 +661,56 @@ namespace Gui_for_powerhell
             this.Donor_listbox.Location = new System.Drawing.Point(202, 4);
             this.Donor_listbox.Name = "Donor_listbox";
             this.Donor_listbox.Size = new System.Drawing.Size(589, 308);
-            this.Donor_listbox.TabIndex = 5;
+            this.Donor_listbox.TabIndex = 2;
             this.Donor_listbox.SelectedIndexChanged += new System.EventHandler(this.Donor_listbox_SelectedIndexChanged);
+            // 
+            // Reciver_search_panel
+            // 
+            this.Reciver_search_panel.Controls.Add(this.Reciver_listbox);
+            this.Reciver_search_panel.Controls.Add(this.label19);
+            this.Reciver_search_panel.Controls.Add(this.Reciver_nazwisko_textbox);
+            this.Reciver_search_panel.Controls.Add(this.Reciver_search_button);
+            this.Reciver_search_panel.Location = new System.Drawing.Point(0, 66);
+            this.Reciver_search_panel.Name = "Reciver_search_panel";
+            this.Reciver_search_panel.Size = new System.Drawing.Size(797, 319);
+            this.Reciver_search_panel.TabIndex = 8;
+            this.Reciver_search_panel.Visible = false;
+            // 
+            // Reciver_listbox
+            // 
+            this.Reciver_listbox.FormattingEnabled = true;
+            this.Reciver_listbox.ItemHeight = 16;
+            this.Reciver_listbox.Location = new System.Drawing.Point(198, 5);
+            this.Reciver_listbox.Name = "Reciver_listbox";
+            this.Reciver_listbox.Size = new System.Drawing.Size(589, 308);
+            this.Reciver_listbox.TabIndex = 2;
+            this.Reciver_listbox.SelectedIndexChanged += new System.EventHandler(this.Reciver_listbox_SelectedIndexChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(9, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 16);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Nazwisko";
+            // 
+            // Reciver_nazwisko_textbox
+            // 
+            this.Reciver_nazwisko_textbox.Location = new System.Drawing.Point(92, 11);
+            this.Reciver_nazwisko_textbox.Name = "Reciver_nazwisko_textbox";
+            this.Reciver_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.Reciver_nazwisko_textbox.TabIndex = 0;
+            // 
+            // Reciver_search_button
+            // 
+            this.Reciver_search_button.Location = new System.Drawing.Point(106, 45);
+            this.Reciver_search_button.Name = "Reciver_search_button";
+            this.Reciver_search_button.Size = new System.Drawing.Size(75, 23);
+            this.Reciver_search_button.TabIndex = 1;
+            this.Reciver_search_button.Text = "Search";
+            this.Reciver_search_button.UseVisualStyleBackColor = true;
+            this.Reciver_search_button.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
@@ -664,11 +718,12 @@ namespace Gui_for_powerhell
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.User_donor_search_panel);
+            this.Controls.Add(this.Reciver_search_panel);
+            this.Controls.Add(this.Credencials_test_panel);
             this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.Action_choose_panel);
             this.Controls.Add(this.Manager_panel);
             this.Controls.Add(this.User_name_pass_input);
-            this.Controls.Add(this.Credencials_test_panel);
             this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
@@ -692,6 +747,8 @@ namespace Gui_for_powerhell
             this.User_create_finish_panel.PerformLayout();
             this.User_donor_search_panel.ResumeLayout(false);
             this.User_donor_search_panel.PerformLayout();
+            this.Reciver_search_panel.ResumeLayout(false);
+            this.Reciver_search_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -755,6 +812,11 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button Donor_search_button;
         private System.Windows.Forms.ListBox Donor_listbox;
+        private System.Windows.Forms.Panel Reciver_search_panel;
+        private System.Windows.Forms.ListBox Reciver_listbox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox Reciver_nazwisko_textbox;
+        private System.Windows.Forms.Button Reciver_search_button;
     }
 }
 

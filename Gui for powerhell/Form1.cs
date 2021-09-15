@@ -20,7 +20,7 @@ namespace Gui_for_powerhell
         public int current_page = 1;
         public int choosen = -1;
         public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
-        public string donor_nazwisko, donor_number;
+        public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number;
 
         void final_filler ()
         {
@@ -71,6 +71,18 @@ namespace Gui_for_powerhell
                 else { break; }
             }
             File.Delete("result.txt");
+        }
+
+        void Group_copy ()
+        {
+            string path = "powershell_functions/groups_copy.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", reciver_nazwisko).Replace("$input2", reciver_number).Replace("$input3", donor_nazwisko).Replace("$input4", donor_number).Replace("$user_input", username).Replace("$pass_input", password);
+            Console.WriteLine(edited_script);
+            RunScript(edited_script);
+            string result = File.ReadAllText("result.txt");
+            MessageBox.Show(result);
+            Application.Exit();
         }
 
         void Page_switcher(int current_page)
@@ -165,7 +177,15 @@ namespace Gui_for_powerhell
                             Main_label.Text = "Wpisz nazwisko 'dawcy', a następnie wybierz go z listy";
                             Action_choose_panel.Visible = false;
                             User_donor_search_panel.Visible = true;
+                            Reciver_search_panel.Visible = false;
                             Next_button.Enabled = false;
+                            break;
+                        case 4:
+                            Main_label.Text = "Wpisz nazwisko 'odbiorcy', a nastepnie wybierz go z listy";
+                            User_donor_search_panel.Visible = false;
+                            Reciver_search_panel.Visible = true;
+                            Next_button.Enabled = false;
+                            Next_button.Text = "Finnish";
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (1 defult)");
@@ -175,9 +195,16 @@ namespace Gui_for_powerhell
             }
         }
 
+        private void Reciver_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            reciver_number = Reciver_listbox.SelectedIndex.ToString();
+            Next_button.Enabled = true;
+        }
+
         private void Donor_search_button_Click(object sender, EventArgs e)
         {
             donor_nazwisko = Donor_nazwisko_textbox.Text;
+            Donor_listbox.Items.Clear();
             Regex rgx = new Regex(@"^[\p{L}]+$");
             if (rgx.IsMatch(donor_nazwisko))
             {
@@ -202,6 +229,29 @@ namespace Gui_for_powerhell
             {
                 MessageBox.Show("Nazwisko zawiera zakazane symbole");
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Next_button.Enabled = false;
+            Reciver_listbox.Items.Clear();
+            reciver_nazwisko = Reciver_nazwisko_textbox.Text;
+            string path = "powershell_functions/user_search.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", reciver_nazwisko);
+            RunScript(edited_script);
+            string result = File.ReadAllText("result.txt");
+            StringReader strReader = new StringReader(result);
+            while (true)
+            {
+                string temp = strReader.ReadLine();
+                if (temp != null)
+                {
+                    Reciver_listbox.Items.Add(temp);
+                }
+                else { break; }
+            }
+            File.Delete("result.txt");
         }
 
         private void Donor_listbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -293,6 +343,10 @@ namespace Gui_for_powerhell
         {
             if ((choosen == 0) && (current_page == 6)) {
                 user_creator();
+            }
+            else if ((choosen == 1) && (current_page == 4))
+            {
+                Group_copy();
             }
             else
             {
