@@ -21,6 +21,7 @@ namespace Gui_for_powerhell
         public int choosen = -1;
         public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
         public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number;
+        public string[] upn = new string[] { "@korona.wielun.pl", "@coronacandles.com" };
 
         void final_filler ()
         {
@@ -85,6 +86,32 @@ namespace Gui_for_powerhell
             Application.Exit();
         }
 
+        void load_user_data ()
+        {
+            string path = "powershell_functions/user_propeties_getter.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$input3", new_password).Replace("$user_input", username).Replace("$pass_input", password);
+            Console.WriteLine(edited_script);
+            RunScript(edited_script);
+            modify_imie_textbox.Text = new_imie;
+            modify_nazwisko_textbox.Text = new_nazwisko;
+            modify_haslo_textbox.Text = new_password;
+            modify_title_textbox.Text = File.ReadAllText("title.txt");
+            modify_department_textbox.Text = File.ReadAllText("dp.txt");
+            modify_departmentnumber_textbox.Text = File.ReadAllText("dp_number.txt");
+            string temp_upn = File.ReadAllText("upn.txt");
+            int i = 0;
+            foreach (string temp in upn)
+            {
+                modify_upn_combobox.Items.Add(temp);
+                if (temp.Contains(temp_upn))
+                {
+                    modify_upn_combobox.Select();
+                }
+                i++;
+            }
+        }
+
         void Page_switcher(int current_page)
         {
             switch (choosen)
@@ -93,6 +120,14 @@ namespace Gui_for_powerhell
                     switch (current_page)
                     {
                         case 1:
+                            if (File.Exists("number.txt"))
+                            {
+                                File.Delete("number.txt");
+                            }
+                            if (File.Exists("result.txt"))
+                            {
+                                File.Delete("result.txt");
+                            }
                             Main_label.Text = "Wprowadź dane";
                             Credencials_test_panel.Visible = true;
                             Action_choose_panel.Visible = false;
@@ -129,6 +164,7 @@ namespace Gui_for_powerhell
                             Action_choose_panel.Visible = false;
                             User_name_pass_input.Visible = true;
                             Ou_choose_panel.Visible = false;
+                            User_modify_panel.Visible = false;
                             Next_button.Enabled = false;
                             Ou_search();
                             break;
@@ -154,6 +190,11 @@ namespace Gui_for_powerhell
                             Manager_panel.Visible = false;
                             User_create_finish_panel.Visible = true;
                             Next_button.Text = "Finnish";
+                            break;
+                        case 7: // After 3
+                            Main_label.Text = "Zmień wybrane atrybuty uzytkownika";
+                            User_name_pass_input.Visible = false;
+                            User_modify_panel.Visible = true;
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (0 defult)");
@@ -422,11 +463,23 @@ namespace Gui_for_powerhell
             {
                 Atribiute_editor_panel.Visible = true;
             }
-            else if (results == "1")
+            else if (results == "1") // Full name
             {
-                MessageBox.Show("Użytkownik istnieje (pełne imie)");
+                File.WriteAllText("number.txt", results);
+                DialogResult dialogResult = MessageBox.Show("Użytkownik o podanych danych już istnieje, czy chesz go edytować?", "Eekum bokum", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    current_page = 7;
+                    load_user_data();
+                    Page_switcher(current_page);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //mogu mogu
+                }
+
             }
-            else if (results == "2")
+            else if (results == "2") // Short name
             {
                 MessageBox.Show("Użytkownik istnieje (inicial)");
             }
