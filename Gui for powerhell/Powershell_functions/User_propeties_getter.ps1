@@ -10,20 +10,36 @@ $shortsamusername = $imiel.Substring(0,1) + "." + $nazwiskol
 
 $username = "$user_input"
 $password = "$pass_input"
-# $password = ConvertTo-SecureString -String $password -asplaintext -Force
-# $user_credentials = New-Object System.Management.Automation.PSCredential $username,$password
+$password = ConvertTo-SecureString -String $password -asplaintext -Force
+$user_credentials = New-Object System.Management.Automation.PSCredential $username,$password
 
 if ($number -eq 1) {
-	$data = Get-ADUser $samusername -Properties proxyAddresses,title,departmentNumber,department # -Credential $user_credentials
+	$data = Get-ADUser $samusername -Properties proxyAddresses,title,departmentNumber,department -Credential $user_credentials
 }
 if ($number -eq 2) {
-	$data = Get-ADUser $shortsamusername -Properties proxyAddresses,title,departmentNumber,department # -Credential $user_credentials
+	$data = Get-ADUser $shortsamusername -Properties proxyAddresses,title,departmentNumber,department -Credential $user_credentials
 }
 
-$data.userprincipalname -match "@.{1,}$" > $null
-$upn = $Matches[0]
-$yes = $data.departmentnumber -match "[0-9]{3}-[0-9]{2}"
-$dp_nb = $yes[0]
+try {
+	$data.userprincipalname -match "@.{1,}$" > $null
+	$upn = $Matches[0]
+}
+catch {
+	New-Item -Name "no wife"
+}
+
+try {
+	$yes = $data.departmentnumber -match "[0-9]{3}-[0-9]{2}"
+	$dp_nb = $yes[0]
+}
+catch {
+	try {
+		$yes = $data.departmentnumber
+	}
+	catch {
+		New-Item -Name "baka"
+	}
+}
 
 New-Item -Name "title.txt" -Value $data.title -Force
 New-Item -Name "dp.txt" -Value $data.department -Force

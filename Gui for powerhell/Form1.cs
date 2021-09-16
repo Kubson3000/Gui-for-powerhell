@@ -22,6 +22,7 @@ namespace Gui_for_powerhell
         public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
         public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number;
         public string[] upn = new string[] { "@korona.wielun.pl", "@coronacandles.com" };
+        public int def_upn;
 
         void final_filler ()
         {
@@ -91,7 +92,7 @@ namespace Gui_for_powerhell
             string path = "powershell_functions/user_propeties_getter.ps1";
             string script = File.ReadAllText(path);
             string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$input3", new_password).Replace("$user_input", username).Replace("$pass_input", password);
-            Console.WriteLine(edited_script);
+            MessageBox.Show(edited_script);
             RunScript(edited_script);
             modify_imie_textbox.Text = new_imie;
             modify_nazwisko_textbox.Text = new_nazwisko;
@@ -101,12 +102,14 @@ namespace Gui_for_powerhell
             modify_departmentnumber_textbox.Text = File.ReadAllText("dp_number.txt");
             string temp_upn = File.ReadAllText("upn.txt");
             int i = 0;
+            modify_upn_combobox.Items.Clear();
             foreach (string temp in upn)
             {
                 modify_upn_combobox.Items.Add(temp);
                 if (temp_upn == temp)
                 {
                     modify_upn_combobox.SelectedIndex = i;
+                    def_upn = i;
                 }
                 i++;
             }
@@ -119,6 +122,34 @@ namespace Gui_for_powerhell
             {
                 File.Delete(directoryFile);
             }
+        }
+
+        void edit_user ()
+        {
+            clear_dir();
+            if (title != modify_title_textbox.Text)
+            {
+                File.WriteAllText("edit_title.txt", modify_title_textbox.Text);
+            }
+            if (department != modify_department_textbox.Text)
+            {
+                File.WriteAllText("edit_department.txt", modify_department_textbox.Text);
+            }
+            if (department_number != modify_departmentnumber_textbox.Text)
+            {
+                File.WriteAllText("edit_department_number.txt", modify_departmentnumber_textbox.Text);
+            }
+            if (def_upn != modify_upn_combobox.SelectedIndex)
+            {
+                string temp = modify_upn_combobox.SelectedItem.ToString();
+                File.WriteAllText("edit_upn.txt", temp);
+            }
+            string path = "powershell_functions/edit_user.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$user_input", username).Replace("$pass_input", password);
+            MessageBox.Show(edited_script);
+            RunScript(edited_script);
+            clear_dir();
         }
 
         void Page_switcher(int current_page)
@@ -197,6 +228,7 @@ namespace Gui_for_powerhell
                             Main_label.Text = "Zmień wybrane atrybuty uzytkownika";
                             User_name_pass_input.Visible = false;
                             User_modify_panel.Visible = true;
+                            Next_button.Enabled = true;
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (0 defult)");
@@ -390,6 +422,10 @@ namespace Gui_for_powerhell
             else if ((choosen == 1) && (current_page == 4))
             {
                 Group_copy();
+            }
+            else if ((choosen == 0) && (current_page == 7))
+            {
+                edit_user();
             }
             else
             {

@@ -107,6 +107,7 @@ namespace Gui_for_powerhell
             this.label21 = new System.Windows.Forms.Label();
             this.modify_imie_textbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.password_change_checkbox = new System.Windows.Forms.CheckBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -730,6 +731,7 @@ namespace Gui_for_powerhell
             // 
             // User_modify_panel
             // 
+            this.User_modify_panel.Controls.Add(this.password_change_checkbox);
             this.User_modify_panel.Controls.Add(this.modify_upn_combobox);
             this.User_modify_panel.Controls.Add(this.label26);
             this.User_modify_panel.Controls.Add(this.modify_departmentnumber_textbox);
@@ -834,6 +836,7 @@ namespace Gui_for_powerhell
             // 
             // modify_nazwisko_textbox
             // 
+            this.modify_nazwisko_textbox.Enabled = false;
             this.modify_nazwisko_textbox.Location = new System.Drawing.Point(147, 38);
             this.modify_nazwisko_textbox.Name = "modify_nazwisko_textbox";
             this.modify_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
@@ -850,6 +853,7 @@ namespace Gui_for_powerhell
             // 
             // modify_imie_textbox
             // 
+            this.modify_imie_textbox.Enabled = false;
             this.modify_imie_textbox.Location = new System.Drawing.Point(147, 7);
             this.modify_imie_textbox.Name = "modify_imie_textbox";
             this.modify_imie_textbox.Size = new System.Drawing.Size(100, 22);
@@ -864,13 +868,23 @@ namespace Gui_for_powerhell
             this.label20.TabIndex = 0;
             this.label20.Text = "Imię";
             // 
+            // password_change_checkbox
+            // 
+            this.password_change_checkbox.AutoSize = true;
+            this.password_change_checkbox.Location = new System.Drawing.Point(254, 70);
+            this.password_change_checkbox.Name = "password_change_checkbox";
+            this.password_change_checkbox.Size = new System.Drawing.Size(143, 20);
+            this.password_change_checkbox.TabIndex = 14;
+            this.password_change_checkbox.Text = "Change password?";
+            this.password_change_checkbox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.User_modify_panel);
             this.Controls.Add(this.User_name_pass_input);
+            this.Controls.Add(this.User_modify_panel);
             this.Controls.Add(this.User_donor_search_panel);
             this.Controls.Add(this.Reciver_search_panel);
             this.Controls.Add(this.Credencials_test_panel);
@@ -987,6 +1001,7 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox modify_department_textbox;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.CheckBox password_change_checkbox;
     }
 }
 
