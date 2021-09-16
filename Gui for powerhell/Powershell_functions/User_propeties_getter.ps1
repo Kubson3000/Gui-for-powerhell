@@ -22,8 +22,10 @@ if ($number -eq 2) {
 
 $data.userprincipalname -match "@.{1,}$" > $null
 $upn = $Matches[0]
+$yes = $data.departmentnumber -match "[0-9]{3}-[0-9]{2}"
+$dp_nb = $yes[0]
 
 New-Item -Name "title.txt" -Value $data.title -Force
 New-Item -Name "dp.txt" -Value $data.department -Force
-New-Item -Name "dp_number.txt" -Value $data.departmentnumber -Force
+New-Item -Name "dp_number.txt" -Value $dp_nb -Force
 New-Item -Name "upn.txt" -Value $upn -Force
