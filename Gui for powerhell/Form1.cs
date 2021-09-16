@@ -104,11 +104,20 @@ namespace Gui_for_powerhell
             foreach (string temp in upn)
             {
                 modify_upn_combobox.Items.Add(temp);
-                if (temp.Contains(temp_upn))
+                if (temp_upn == temp)
                 {
-                    modify_upn_combobox.Select();
+                    modify_upn_combobox.SelectedIndex = i;
                 }
                 i++;
+            }
+        }
+
+        void clear_dir ()
+        {
+            string[] directoryFiles = Directory.GetFiles("./", "*.txt");
+            foreach (string directoryFile in directoryFiles)
+            {
+                File.Delete(directoryFile);
             }
         }
 
@@ -120,14 +129,7 @@ namespace Gui_for_powerhell
                     switch (current_page)
                     {
                         case 1:
-                            if (File.Exists("number.txt"))
-                            {
-                                File.Delete("number.txt");
-                            }
-                            if (File.Exists("result.txt"))
-                            {
-                                File.Delete("result.txt");
-                            }
+                            clear_dir();
                             Main_label.Text = "Wprowadź dane";
                             Credencials_test_panel.Visible = true;
                             Action_choose_panel.Visible = false;
