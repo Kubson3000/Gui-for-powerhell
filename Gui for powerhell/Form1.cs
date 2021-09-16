@@ -61,7 +61,6 @@ namespace Gui_for_powerhell
             string script = File.ReadAllText(path);
             RunScript(script);
             ou_list = File.ReadAllText("result.txt");
-            Console.WriteLine(ou_list);
             StringReader strReader = new StringReader(ou_list);
             while (true)
             {
@@ -80,7 +79,6 @@ namespace Gui_for_powerhell
             string path = "powershell_functions/groups_copy.ps1";
             string script = File.ReadAllText(path);
             string edited_script = script.Replace("$input1", reciver_nazwisko).Replace("$input2", reciver_number).Replace("$input3", donor_nazwisko).Replace("$input4", donor_number).Replace("$user_input", username).Replace("$pass_input", password);
-            Console.WriteLine(edited_script);
             RunScript(edited_script);
             string result = File.ReadAllText("result.txt");
             MessageBox.Show(result);
@@ -92,7 +90,6 @@ namespace Gui_for_powerhell
             string path = "powershell_functions/user_propeties_getter.ps1";
             string script = File.ReadAllText(path);
             string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$input3", new_password).Replace("$user_input", username).Replace("$pass_input", password);
-            MessageBox.Show(edited_script);
             RunScript(edited_script);
             modify_imie_textbox.Text = new_imie;
             modify_nazwisko_textbox.Text = new_nazwisko;
@@ -126,35 +123,44 @@ namespace Gui_for_powerhell
 
         void edit_user ()
         {
+            int i = 0;
             clear_dir();
             if (title != modify_title_textbox.Text)
             {
                 File.WriteAllText("edit_title.txt", modify_title_textbox.Text);
+                i = 1;
             }
             if (department != modify_department_textbox.Text)
             {
                 File.WriteAllText("edit_department.txt", modify_department_textbox.Text);
+                i = 1;
             }
             if (department_number != modify_departmentnumber_textbox.Text)
             {
                 File.WriteAllText("edit_department_number.txt", modify_departmentnumber_textbox.Text);
+                i = 1;
             }
             if (def_upn != modify_upn_combobox.SelectedIndex)
             {
                 string temp = modify_upn_combobox.SelectedItem.ToString();
                 File.WriteAllText("edit_upn.txt", temp);
+                i = 1;
             }
             if (password_change_checkbox.Checked)
             {
                 File.WriteAllText("edit_password.txt", new_password);
+                i = 1;
             }
-            string path = "powershell_functions/edit_user.ps1";
-            string script = File.ReadAllText(path);
-            string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$user_input", username).Replace("$pass_input", password);
-            RunScript(edited_script);
-            clear_dir();
-            MessageBox.Show("Dane użytkownika zostały zmienione");
-            Close();
+            if (i != 0)
+            {
+                string path = "powershell_functions/edit_user.ps1";
+                string script = File.ReadAllText(path);
+                string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$user_input", username).Replace("$pass_input", password);
+                RunScript(edited_script);
+                clear_dir();
+                MessageBox.Show("Dane użytkownika zostały zmienione");
+                Application.Exit();
+            }
         }
 
         void Page_switcher(int current_page)
@@ -223,7 +229,6 @@ namespace Gui_for_powerhell
                             break;
                         case 6:
                             Main_label.Text = "Sprwdź dane nowego urzytkownika i w razie potrzyeby je popraw";
-                            Console.WriteLine('"' + manager_name + '"', '"' + manager_number.ToString() + '"', '"' + ou_number.ToString() + '"');
                             final_filler();
                             Manager_panel.Visible = false;
                             User_create_finish_panel.Visible = true;
@@ -369,7 +374,6 @@ namespace Gui_for_powerhell
         {
             manager_number = Manager_listbox.SelectedIndex.ToString();
             manager_fullname = Manager_listbox.SelectedItem.ToString();
-            Console.WriteLine(manager_number);
             Next_button.Enabled = true;
         }
 
@@ -393,7 +397,6 @@ namespace Gui_for_powerhell
             {
                 MessageBox.Show("Niedostateczne permisje urzytkownika");
             }
-            Console.WriteLine(results);
             File.Delete("Credencial_result.txt");
         }
 
@@ -451,7 +454,6 @@ namespace Gui_for_powerhell
             RunScript(edited_script);
             string manager_list = File.ReadAllText("result.txt");
             StringReader strReader = new StringReader(manager_list);
-            Console.WriteLine("Managerlist " + manager_list);
             while (true)
             {
                 string temp = strReader.ReadLine();
@@ -468,7 +470,6 @@ namespace Gui_for_powerhell
         {
             Next_button.Enabled = true;
             choosen = Choose_listbox.SelectedIndex;
-            Console.WriteLine(choosen.ToString());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -480,7 +481,6 @@ namespace Gui_for_powerhell
         {
             ou_number = Ou_listbox.SelectedIndex.ToString();
             ou_fullname = Ou_listbox.SelectedItem.ToString();
-            Console.WriteLine(ou_number.ToString());
             Next_button.Enabled = true;
         }
 
@@ -518,7 +518,7 @@ namespace Gui_for_powerhell
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    //mogu mogu
+                    //もぐもぐ
                 }
 
             }

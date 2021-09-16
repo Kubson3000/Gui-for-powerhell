@@ -1,4 +1,4 @@
-$imie = "$input1"
+﻿$imie = "$input1"
 $nazwisko = "$input2"
 $number = Get-Content -Path "number.txt"
 $haslo = "$input3"
@@ -25,7 +25,7 @@ try {
 	$upn = $Matches[0]
 }
 catch {
-	New-Item -Name "no wife"
+	New-Item -Name "only friend no wife"
 }
 
 try {
@@ -37,7 +37,7 @@ catch {
 		$yes = $data.departmentnumber
 	}
 	catch {
-		New-Item -Name "baka"
+		New-Item -Name "ばか"
 	}
 }
 
