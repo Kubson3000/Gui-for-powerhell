@@ -883,8 +883,8 @@ namespace Gui_for_powerhell
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.User_modify_panel);
+            this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.User_donor_search_panel);
             this.Controls.Add(this.Reciver_search_panel);
             this.Controls.Add(this.Credencials_test_panel);

@@ -27,3 +27,8 @@ if (Test-Path "edit_upn.txt") {
 	$new_principalname = $samusername + $upn_name
 	Set-ADUser $samusername -UserPrincipalName $new_principalname
 }
+if (Test-Path "edit_password.txt") {
+	$new_password = Get-Content "edit_password.txt"
+	$new_password = ConvertTo-SecureString -String $new_password -AsPlainText -Force
+	Set-ADAccountPassword -Identity $samusername -Reset -NewPassword $new_password
+}

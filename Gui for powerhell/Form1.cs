@@ -144,12 +144,17 @@ namespace Gui_for_powerhell
                 string temp = modify_upn_combobox.SelectedItem.ToString();
                 File.WriteAllText("edit_upn.txt", temp);
             }
+            if (password_change_checkbox.Checked)
+            {
+                File.WriteAllText("edit_password.txt", new_password);
+            }
             string path = "powershell_functions/edit_user.ps1";
             string script = File.ReadAllText(path);
             string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$user_input", username).Replace("$pass_input", password);
-            MessageBox.Show(edited_script);
             RunScript(edited_script);
             clear_dir();
+            MessageBox.Show("Dane użytkownika zostały zmienione");
+            Close();
         }
 
         void Page_switcher(int current_page)
