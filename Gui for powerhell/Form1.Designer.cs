@@ -108,6 +108,9 @@ namespace Gui_for_powerhell
             this.modify_imie_textbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.password_change_checkbox = new System.Windows.Forms.CheckBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.proxyaddresses_textbox = new System.Windows.Forms.TextBox();
+            this.proxyaddresses_update_checkbox = new System.Windows.Forms.CheckBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -731,8 +734,11 @@ namespace Gui_for_powerhell
             // 
             // User_modify_panel
             // 
+            this.User_modify_panel.Controls.Add(this.proxyaddresses_update_checkbox);
+            this.User_modify_panel.Controls.Add(this.proxyaddresses_textbox);
             this.User_modify_panel.Controls.Add(this.password_change_checkbox);
             this.User_modify_panel.Controls.Add(this.modify_upn_combobox);
+            this.User_modify_panel.Controls.Add(this.label27);
             this.User_modify_panel.Controls.Add(this.label26);
             this.User_modify_panel.Controls.Add(this.modify_departmentnumber_textbox);
             this.User_modify_panel.Controls.Add(this.label24);
@@ -878,6 +884,33 @@ namespace Gui_for_powerhell
             this.password_change_checkbox.Text = "Change password?";
             this.password_change_checkbox.UseVisualStyleBackColor = true;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(418, 7);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(108, 16);
+            this.label27.TabIndex = 11;
+            this.label27.Text = "ProxyAddresses";
+            // 
+            // proxyaddresses_textbox
+            // 
+            this.proxyaddresses_textbox.Location = new System.Drawing.Point(421, 32);
+            this.proxyaddresses_textbox.Multiline = true;
+            this.proxyaddresses_textbox.Name = "proxyaddresses_textbox";
+            this.proxyaddresses_textbox.Size = new System.Drawing.Size(366, 276);
+            this.proxyaddresses_textbox.TabIndex = 15;
+            // 
+            // proxyaddresses_update_checkbox
+            // 
+            this.proxyaddresses_update_checkbox.AutoSize = true;
+            this.proxyaddresses_update_checkbox.Location = new System.Drawing.Point(532, 5);
+            this.proxyaddresses_update_checkbox.Name = "proxyaddresses_update_checkbox";
+            this.proxyaddresses_update_checkbox.Size = new System.Drawing.Size(79, 20);
+            this.proxyaddresses_update_checkbox.TabIndex = 16;
+            this.proxyaddresses_update_checkbox.Text = "Update?";
+            this.proxyaddresses_update_checkbox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1002,6 +1035,9 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.TextBox modify_department_textbox;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.CheckBox password_change_checkbox;
+        private System.Windows.Forms.CheckBox proxyaddresses_update_checkbox;
+        private System.Windows.Forms.TextBox proxyaddresses_textbox;
+        private System.Windows.Forms.Label label27;
     }
 }
 

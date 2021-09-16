@@ -14,10 +14,16 @@ $password = ConvertTo-SecureString -String $password -asplaintext -Force
 $user_credentials = New-Object System.Management.Automation.PSCredential $username,$password
 
 if ($number -eq 1) {
-	$data = Get-ADUser $samusername -Properties proxyAddresses,title,departmentNumber,department -Credential $user_credentials
+	$data = Get-ADUser $samusername -Properties proxyAddresses,title,departmentNumber,department,proxyaddresses -Credential $user_credentials
 }
 if ($number -eq 2) {
-	$data = Get-ADUser $shortsamusername -Properties proxyAddresses,title,departmentNumber,department -Credential $user_credentials
+	$data = Get-ADUser $shortsamusername -Properties proxyAddresses,title,departmentNumber,department,proxyaddresses -Credential $user_credentials
+}
+
+$proxyaddresses_array = $data.proxyaddresses
+$proxyaddresses_string = ''
+foreach ($line in $proxyaddresses_array) {
+	$proxyaddresses_string += $line,'`n'
 }
 
 try {
@@ -45,3 +51,4 @@ New-Item -Name "title.txt" -Value $data.title -Force
 New-Item -Name "dp.txt" -Value $data.department -Force
 New-Item -Name "dp_number.txt" -Value $dp_nb -Force
 New-Item -Name "upn.txt" -Value $upn -Force
+New-Item -Name "proxyaddresses.txt" -Value $proxyaddresses_string -Force

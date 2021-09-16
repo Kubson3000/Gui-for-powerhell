@@ -110,6 +110,7 @@ namespace Gui_for_powerhell
                 }
                 i++;
             }
+            // add proxyaddresses textbox filler
         }
 
         void clear_dir ()
