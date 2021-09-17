@@ -110,7 +110,8 @@ namespace Gui_for_powerhell
                 }
                 i++;
             }
-            // add proxyaddresses textbox filler
+            string proxyaddresses = File.ReadAllText("proxyaddresses.txt");
+            proxyaddresses_textbox.Text = proxyaddresses.Replace("`n","");
         }
 
         void clear_dir ()
@@ -151,6 +152,18 @@ namespace Gui_for_powerhell
             {
                 File.WriteAllText("edit_password.txt", new_password);
                 i = 1;
+            }
+            if (proxyaddresses_update_checkbox.Checked)
+            {
+                if (keep_old_proxy_checkbox.Checked)
+                {
+                    File.WriteAllText("keep.txt", "yes");
+                }
+                string proxy_path = "powershell_functions/proxy_updater.ps1";
+                string proxy_uptater = File.ReadAllText(proxy_path);
+                string edited_proxy_updater = proxy_uptater.Replace("$user_input", username).Replace("$pass_input", password).Replace("$input1", new_imie).Replace("$input2", new_nazwisko);
+                MessageBox.Show(edited_proxy_updater);
+                RunScript(edited_proxy_updater);
             }
             if (i != 0)
             {
@@ -206,6 +219,7 @@ namespace Gui_for_powerhell
                             break;
                         case 3:
                             Main_label.Text = "Wprowadź dane tworzonego użytkownika";
+                            Next_button.Text = "Next";
                             Action_choose_panel.Visible = false;
                             User_name_pass_input.Visible = true;
                             Ou_choose_panel.Visible = false;
@@ -240,6 +254,7 @@ namespace Gui_for_powerhell
                             User_name_pass_input.Visible = false;
                             User_modify_panel.Visible = true;
                             Next_button.Enabled = true;
+                            Next_button.Text = "Finnish";
                             break;
                         default:
                             Console.WriteLine("Page_switcher error (0 defult)");
@@ -285,6 +300,18 @@ namespace Gui_for_powerhell
         {
             reciver_number = Reciver_listbox.SelectedIndex.ToString();
             Next_button.Enabled = true;
+        }
+
+        private void proxyaddresses_update_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (proxyaddresses_update_checkbox.Checked)
+            {
+                keep_old_proxy_checkbox.Enabled = true;
+            }
+            else
+            {
+                keep_old_proxy_checkbox.Enabled = false;
+            }
         }
 
         private void Donor_search_button_Click(object sender, EventArgs e)
@@ -419,8 +446,16 @@ namespace Gui_for_powerhell
 
         private void Back_button_Click(object sender, EventArgs e)
         {
-            current_page--;
-            Page_switcher(current_page);
+            if ((choosen == 0) && (current_page == 7))
+            {
+                current_page = 3;
+                Page_switcher(current_page);
+            }
+            else
+            {
+                current_page--;
+                Page_switcher(current_page);
+            }
         }
 
         private void Next_button_Click(object sender, EventArgs e)

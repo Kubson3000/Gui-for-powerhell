@@ -80,6 +80,9 @@
     <None Include="Powershell_functions\edit_user.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Powershell_functions\proxy_updater.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Powershell_functions\User_propeties_getter.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

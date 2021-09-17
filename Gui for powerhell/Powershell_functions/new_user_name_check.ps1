@@ -11,9 +11,11 @@ $result_nb = 0
 
 if ([bool] (Get-ADUser -Filter { SamAccountName -eq $samusername })) {
 	$result_nb = 1 # Istnieje (pełne imie)
+	New-Item -Path "powershell_functions" -Name "san.txt" -Value $samusername
 }
 elseif ([bool] (Get-ADUser -Filter { SamAccountName -eq $shortsamusername })) {
 	$result_nb = 2 # Istnieje (iniciał)
+	New-Item -Path "powershell_functions" -Name "san.txt" -Value $shortsamusername
 }
 if ($haslo -notmatch "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$") {
 	if ($result_nb -eq 1) {$result_nb = 3} # Istnieje (pełne imie) + błędne hasło

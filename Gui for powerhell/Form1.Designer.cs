@@ -93,7 +93,11 @@ namespace Gui_for_powerhell
             this.Reciver_nazwisko_textbox = new System.Windows.Forms.TextBox();
             this.Reciver_search_button = new System.Windows.Forms.Button();
             this.User_modify_panel = new System.Windows.Forms.Panel();
+            this.proxyaddresses_update_checkbox = new System.Windows.Forms.CheckBox();
+            this.proxyaddresses_textbox = new System.Windows.Forms.TextBox();
+            this.password_change_checkbox = new System.Windows.Forms.CheckBox();
             this.modify_upn_combobox = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.modify_departmentnumber_textbox = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -107,10 +111,7 @@ namespace Gui_for_powerhell
             this.label21 = new System.Windows.Forms.Label();
             this.modify_imie_textbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.password_change_checkbox = new System.Windows.Forms.CheckBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.proxyaddresses_textbox = new System.Windows.Forms.TextBox();
-            this.proxyaddresses_update_checkbox = new System.Windows.Forms.CheckBox();
+            this.keep_old_proxy_checkbox = new System.Windows.Forms.CheckBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -132,17 +133,18 @@ namespace Gui_for_powerhell
             this.Bottom_buttons_panel.Controls.Add(this.Next_button);
             this.Bottom_buttons_panel.Controls.Add(this.Back_button);
             this.Bottom_buttons_panel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.Bottom_buttons_panel.Location = new System.Drawing.Point(3, 391);
-            this.Bottom_buttons_panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Bottom_buttons_panel.Location = new System.Drawing.Point(2, 318);
+            this.Bottom_buttons_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Bottom_buttons_panel.Name = "Bottom_buttons_panel";
-            this.Bottom_buttons_panel.Size = new System.Drawing.Size(795, 57);
+            this.Bottom_buttons_panel.Size = new System.Drawing.Size(596, 46);
             this.Bottom_buttons_panel.TabIndex = 0;
             // 
             // Next_button
             // 
-            this.Next_button.Location = new System.Drawing.Point(717, 3);
+            this.Next_button.Location = new System.Drawing.Point(538, 2);
+            this.Next_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Next_button.Name = "Next_button";
-            this.Next_button.Size = new System.Drawing.Size(75, 23);
+            this.Next_button.Size = new System.Drawing.Size(56, 19);
             this.Next_button.TabIndex = 9;
             this.Next_button.Text = "Next";
             this.Next_button.UseVisualStyleBackColor = true;
@@ -151,10 +153,10 @@ namespace Gui_for_powerhell
             // Back_button
             // 
             this.Back_button.Enabled = false;
-            this.Back_button.Location = new System.Drawing.Point(636, 2);
-            this.Back_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Back_button.Location = new System.Drawing.Point(478, 2);
+            this.Back_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(75, 23);
+            this.Back_button.Size = new System.Drawing.Size(56, 19);
             this.Back_button.TabIndex = 10;
             this.Back_button.Text = "Back";
             this.Back_button.UseVisualStyleBackColor = true;
@@ -163,10 +165,10 @@ namespace Gui_for_powerhell
             // Cred_test_button
             // 
             this.Cred_test_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Cred_test_button.Location = new System.Drawing.Point(402, 249);
-            this.Cred_test_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Cred_test_button.Location = new System.Drawing.Point(302, 202);
+            this.Cred_test_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Cred_test_button.Name = "Cred_test_button";
-            this.Cred_test_button.Size = new System.Drawing.Size(124, 23);
+            this.Cred_test_button.Size = new System.Drawing.Size(93, 19);
             this.Cred_test_button.TabIndex = 2;
             this.Cred_test_button.Text = "Test Credencials";
             this.Cred_test_button.UseVisualStyleBackColor = true;
@@ -179,44 +181,45 @@ namespace Gui_for_powerhell
             this.Credencials_test_panel.Controls.Add(this.Password_box);
             this.Credencials_test_panel.Controls.Add(this.label2);
             this.Credencials_test_panel.Controls.Add(this.label3);
-            this.Credencials_test_panel.Location = new System.Drawing.Point(0, 66);
-            this.Credencials_test_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Credencials_test_panel.Location = new System.Drawing.Point(0, 54);
             this.Credencials_test_panel.Name = "Credencials_test_panel";
-            this.Credencials_test_panel.Size = new System.Drawing.Size(797, 319);
+            this.Credencials_test_panel.Size = new System.Drawing.Size(598, 259);
             this.Credencials_test_panel.TabIndex = 0;
             // 
             // Username_box
             // 
-            this.Username_box.Location = new System.Drawing.Point(367, 122);
-            this.Username_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Username_box.Location = new System.Drawing.Point(275, 99);
+            this.Username_box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Username_box.Name = "Username_box";
-            this.Username_box.Size = new System.Drawing.Size(189, 22);
+            this.Username_box.Size = new System.Drawing.Size(143, 20);
             this.Username_box.TabIndex = 0;
             // 
             // Password_box
             // 
-            this.Password_box.Location = new System.Drawing.Point(367, 186);
-            this.Password_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Password_box.Location = new System.Drawing.Point(275, 151);
+            this.Password_box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Password_box.Name = "Password_box";
             this.Password_box.PasswordChar = '*';
-            this.Password_box.Size = new System.Drawing.Size(189, 22);
+            this.Password_box.Size = new System.Drawing.Size(143, 20);
             this.Password_box.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 126);
+            this.label2.Location = new System.Drawing.Point(181, 102);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Username";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(244, 190);
+            this.label3.Location = new System.Drawing.Point(183, 154);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 16);
+            this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Password";
             // 
@@ -224,18 +227,16 @@ namespace Gui_for_powerhell
             // 
             this.flowLayoutPanel1.Controls.Add(this.Main_label);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(797, 59);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(598, 48);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // Main_label
             // 
             this.Main_label.AutoSize = true;
-            this.Main_label.Location = new System.Drawing.Point(4, 0);
-            this.Main_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Main_label.Location = new System.Drawing.Point(3, 0);
             this.Main_label.Name = "Main_label";
-            this.Main_label.Size = new System.Drawing.Size(106, 16);
+            this.Main_label.Size = new System.Drawing.Size(85, 13);
             this.Main_label.TabIndex = 0;
             this.Main_label.Text = "Wprowadź dane";
             this.Main_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,24 +244,21 @@ namespace Gui_for_powerhell
             // Action_choose_panel
             // 
             this.Action_choose_panel.Controls.Add(this.Choose_listbox);
-            this.Action_choose_panel.Location = new System.Drawing.Point(0, 66);
-            this.Action_choose_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Action_choose_panel.Location = new System.Drawing.Point(0, 54);
             this.Action_choose_panel.Name = "Action_choose_panel";
-            this.Action_choose_panel.Size = new System.Drawing.Size(797, 319);
+            this.Action_choose_panel.Size = new System.Drawing.Size(598, 259);
             this.Action_choose_panel.TabIndex = 2;
             this.Action_choose_panel.Visible = false;
             // 
             // Choose_listbox
             // 
             this.Choose_listbox.FormattingEnabled = true;
-            this.Choose_listbox.ItemHeight = 16;
             this.Choose_listbox.Items.AddRange(new object[] {
             "Stworzyć nowego użytkownika",
             "Skopiować przynależności grup"});
-            this.Choose_listbox.Location = new System.Drawing.Point(245, 69);
-            this.Choose_listbox.Margin = new System.Windows.Forms.Padding(4);
+            this.Choose_listbox.Location = new System.Drawing.Point(184, 56);
             this.Choose_listbox.Name = "Choose_listbox";
-            this.Choose_listbox.Size = new System.Drawing.Size(260, 100);
+            this.Choose_listbox.Size = new System.Drawing.Size(196, 82);
             this.Choose_listbox.TabIndex = 0;
             this.Choose_listbox.SelectedIndexChanged += new System.EventHandler(this.Choose_listbox_SelectedIndexChanged);
             // 
@@ -274,9 +272,10 @@ namespace Gui_for_powerhell
             this.User_name_pass_input.Controls.Add(this.label4);
             this.User_name_pass_input.Controls.Add(this.new_imie_textbox);
             this.User_name_pass_input.Controls.Add(this.label1);
-            this.User_name_pass_input.Location = new System.Drawing.Point(0, 66);
+            this.User_name_pass_input.Location = new System.Drawing.Point(0, 54);
+            this.User_name_pass_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.User_name_pass_input.Name = "User_name_pass_input";
-            this.User_name_pass_input.Size = new System.Drawing.Size(797, 319);
+            this.User_name_pass_input.Size = new System.Drawing.Size(598, 259);
             this.User_name_pass_input.TabIndex = 3;
             this.User_name_pass_input.Visible = false;
             this.User_name_pass_input.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -290,17 +289,19 @@ namespace Gui_for_powerhell
             this.Atribiute_editor_panel.Controls.Add(this.label7);
             this.Atribiute_editor_panel.Controls.Add(this.title_textbox);
             this.Atribiute_editor_panel.Controls.Add(this.label6);
-            this.Atribiute_editor_panel.Location = new System.Drawing.Point(367, 1);
+            this.Atribiute_editor_panel.Location = new System.Drawing.Point(275, 1);
+            this.Atribiute_editor_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Atribiute_editor_panel.Name = "Atribiute_editor_panel";
-            this.Atribiute_editor_panel.Size = new System.Drawing.Size(427, 318);
+            this.Atribiute_editor_panel.Size = new System.Drawing.Size(320, 258);
             this.Atribiute_editor_panel.TabIndex = 7;
             this.Atribiute_editor_panel.Visible = false;
             // 
             // Atribiute_check_button
             // 
-            this.Atribiute_check_button.Location = new System.Drawing.Point(125, 169);
+            this.Atribiute_check_button.Location = new System.Drawing.Point(94, 137);
+            this.Atribiute_check_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Atribiute_check_button.Name = "Atribiute_check_button";
-            this.Atribiute_check_button.Size = new System.Drawing.Size(75, 23);
+            this.Atribiute_check_button.Size = new System.Drawing.Size(56, 19);
             this.Atribiute_check_button.TabIndex = 7;
             this.Atribiute_check_button.Text = "Check user";
             this.Atribiute_check_button.UseVisualStyleBackColor = true;
@@ -308,74 +309,83 @@ namespace Gui_for_powerhell
             // 
             // department_number_textbox
             // 
-            this.department_number_textbox.Location = new System.Drawing.Point(109, 125);
+            this.department_number_textbox.Location = new System.Drawing.Point(82, 102);
+            this.department_number_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.department_number_textbox.Name = "department_number_textbox";
-            this.department_number_textbox.Size = new System.Drawing.Size(100, 22);
+            this.department_number_textbox.Size = new System.Drawing.Size(76, 20);
             this.department_number_textbox.TabIndex = 6;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 128);
+            this.label8.Location = new System.Drawing.Point(24, 104);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 16);
+            this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 4;
             this.label8.Text = "Numer MPK";
             // 
             // department_textbox
             // 
-            this.department_textbox.Location = new System.Drawing.Point(109, 87);
+            this.department_textbox.Location = new System.Drawing.Point(82, 71);
+            this.department_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.department_textbox.Name = "department_textbox";
-            this.department_textbox.Size = new System.Drawing.Size(100, 22);
+            this.department_textbox.Size = new System.Drawing.Size(76, 20);
             this.department_textbox.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 90);
+            this.label7.Location = new System.Drawing.Point(24, 73);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 16);
+            this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 2;
             this.label7.Text = "Dział";
             // 
             // title_textbox
             // 
-            this.title_textbox.Location = new System.Drawing.Point(109, 47);
+            this.title_textbox.Location = new System.Drawing.Point(82, 38);
+            this.title_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.title_textbox.Name = "title_textbox";
-            this.title_textbox.Size = new System.Drawing.Size(100, 22);
+            this.title_textbox.Size = new System.Drawing.Size(76, 20);
             this.title_textbox.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 50);
+            this.label6.Location = new System.Drawing.Point(24, 41);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 16);
+            this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Tytuł";
             // 
             // new_password_textbox
             // 
-            this.new_password_textbox.Location = new System.Drawing.Point(85, 126);
+            this.new_password_textbox.Location = new System.Drawing.Point(64, 102);
+            this.new_password_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.new_password_textbox.Name = "new_password_textbox";
             this.new_password_textbox.PasswordChar = '*';
-            this.new_password_textbox.Size = new System.Drawing.Size(100, 22);
+            this.new_password_textbox.Size = new System.Drawing.Size(76, 20);
             this.new_password_textbox.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.Location = new System.Drawing.Point(10, 105);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 16);
+            this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Hasło";
             // 
             // Check_new_user
             // 
-            this.Check_new_user.Location = new System.Drawing.Point(96, 170);
+            this.Check_new_user.Location = new System.Drawing.Point(72, 138);
+            this.Check_new_user.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Check_new_user.Name = "Check_new_user";
-            this.Check_new_user.Size = new System.Drawing.Size(75, 23);
+            this.Check_new_user.Size = new System.Drawing.Size(56, 19);
             this.Check_new_user.TabIndex = 3;
             this.Check_new_user.Text = "Check user";
             this.Check_new_user.UseVisualStyleBackColor = true;
@@ -383,33 +393,37 @@ namespace Gui_for_powerhell
             // 
             // new_nazwisko_textbox
             // 
-            this.new_nazwisko_textbox.Location = new System.Drawing.Point(85, 88);
+            this.new_nazwisko_textbox.Location = new System.Drawing.Point(64, 72);
+            this.new_nazwisko_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.new_nazwisko_textbox.Name = "new_nazwisko_textbox";
-            this.new_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.new_nazwisko_textbox.Size = new System.Drawing.Size(76, 20);
             this.new_nazwisko_textbox.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 91);
+            this.label4.Location = new System.Drawing.Point(10, 74);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 16);
+            this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Nazwisko";
             // 
             // new_imie_textbox
             // 
-            this.new_imie_textbox.Location = new System.Drawing.Point(85, 48);
+            this.new_imie_textbox.Location = new System.Drawing.Point(64, 39);
+            this.new_imie_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.new_imie_textbox.Name = "new_imie_textbox";
-            this.new_imie_textbox.Size = new System.Drawing.Size(100, 22);
+            this.new_imie_textbox.Size = new System.Drawing.Size(76, 20);
             this.new_imie_textbox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 51);
+            this.label1.Location = new System.Drawing.Point(10, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 16);
+            this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Imię";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -417,19 +431,20 @@ namespace Gui_for_powerhell
             // Ou_choose_panel
             // 
             this.Ou_choose_panel.Controls.Add(this.Ou_listbox);
-            this.Ou_choose_panel.Location = new System.Drawing.Point(0, 66);
+            this.Ou_choose_panel.Location = new System.Drawing.Point(0, 54);
+            this.Ou_choose_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Ou_choose_panel.Name = "Ou_choose_panel";
-            this.Ou_choose_panel.Size = new System.Drawing.Size(797, 319);
+            this.Ou_choose_panel.Size = new System.Drawing.Size(598, 259);
             this.Ou_choose_panel.TabIndex = 4;
             this.Ou_choose_panel.Visible = false;
             // 
             // Ou_listbox
             // 
             this.Ou_listbox.FormattingEnabled = true;
-            this.Ou_listbox.ItemHeight = 16;
-            this.Ou_listbox.Location = new System.Drawing.Point(3, 4);
+            this.Ou_listbox.Location = new System.Drawing.Point(2, 3);
+            this.Ou_listbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Ou_listbox.Name = "Ou_listbox";
-            this.Ou_listbox.Size = new System.Drawing.Size(785, 308);
+            this.Ou_listbox.Size = new System.Drawing.Size(590, 251);
             this.Ou_listbox.TabIndex = 0;
             this.Ou_listbox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -438,27 +453,29 @@ namespace Gui_for_powerhell
             this.Manager_panel.Controls.Add(this.Manager_listbox);
             this.Manager_panel.Controls.Add(this.Manager_search_button);
             this.Manager_panel.Controls.Add(this.manager_textbox);
-            this.Manager_panel.Location = new System.Drawing.Point(0, 66);
+            this.Manager_panel.Location = new System.Drawing.Point(0, 54);
+            this.Manager_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Manager_panel.Name = "Manager_panel";
-            this.Manager_panel.Size = new System.Drawing.Size(797, 319);
+            this.Manager_panel.Size = new System.Drawing.Size(598, 259);
             this.Manager_panel.TabIndex = 5;
             this.Manager_panel.Visible = false;
             // 
             // Manager_listbox
             // 
             this.Manager_listbox.FormattingEnabled = true;
-            this.Manager_listbox.ItemHeight = 16;
-            this.Manager_listbox.Location = new System.Drawing.Point(16, 32);
+            this.Manager_listbox.Location = new System.Drawing.Point(12, 26);
+            this.Manager_listbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Manager_listbox.Name = "Manager_listbox";
-            this.Manager_listbox.Size = new System.Drawing.Size(772, 276);
+            this.Manager_listbox.Size = new System.Drawing.Size(580, 225);
             this.Manager_listbox.TabIndex = 2;
             this.Manager_listbox.SelectedIndexChanged += new System.EventHandler(this.Manager_listbox_SelectedIndexChanged);
             // 
             // Manager_search_button
             // 
-            this.Manager_search_button.Location = new System.Drawing.Point(713, 3);
+            this.Manager_search_button.Location = new System.Drawing.Point(535, 2);
+            this.Manager_search_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Manager_search_button.Name = "Manager_search_button";
-            this.Manager_search_button.Size = new System.Drawing.Size(75, 23);
+            this.Manager_search_button.Size = new System.Drawing.Size(56, 19);
             this.Manager_search_button.TabIndex = 1;
             this.Manager_search_button.Text = "Search";
             this.Manager_search_button.UseVisualStyleBackColor = true;
@@ -466,9 +483,10 @@ namespace Gui_for_powerhell
             // 
             // manager_textbox
             // 
-            this.manager_textbox.Location = new System.Drawing.Point(16, 4);
+            this.manager_textbox.Location = new System.Drawing.Point(12, 3);
+            this.manager_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.manager_textbox.Name = "manager_textbox";
-            this.manager_textbox.Size = new System.Drawing.Size(691, 22);
+            this.manager_textbox.Size = new System.Drawing.Size(519, 20);
             this.manager_textbox.TabIndex = 0;
             this.manager_textbox.TextChanged += new System.EventHandler(this.manager_textbox_TextChanged);
             // 
@@ -490,140 +508,157 @@ namespace Gui_for_powerhell
             this.User_create_finish_panel.Controls.Add(this.label13);
             this.User_create_finish_panel.Controls.Add(this.final_title_textbox);
             this.User_create_finish_panel.Controls.Add(this.label14);
-            this.User_create_finish_panel.Location = new System.Drawing.Point(0, 66);
+            this.User_create_finish_panel.Location = new System.Drawing.Point(0, 54);
+            this.User_create_finish_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.User_create_finish_panel.Name = "User_create_finish_panel";
-            this.User_create_finish_panel.Size = new System.Drawing.Size(797, 319);
+            this.User_create_finish_panel.Size = new System.Drawing.Size(598, 259);
             this.User_create_finish_panel.TabIndex = 6;
             this.User_create_finish_panel.Visible = false;
             // 
             // final_ou_fullname_textbox
             // 
             this.final_ou_fullname_textbox.Enabled = false;
-            this.final_ou_fullname_textbox.Location = new System.Drawing.Point(371, 50);
+            this.final_ou_fullname_textbox.Location = new System.Drawing.Point(278, 41);
+            this.final_ou_fullname_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_ou_fullname_textbox.Name = "final_ou_fullname_textbox";
-            this.final_ou_fullname_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_ou_fullname_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_ou_fullname_textbox.TabIndex = 22;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(288, 53);
+            this.label15.Location = new System.Drawing.Point(216, 43);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(28, 16);
+            this.label15.Size = new System.Drawing.Size(23, 13);
             this.label15.TabIndex = 21;
             this.label15.Text = "OU";
             // 
             // final_manager_textbox
             // 
             this.final_manager_textbox.Enabled = false;
-            this.final_manager_textbox.Location = new System.Drawing.Point(371, 10);
+            this.final_manager_textbox.Location = new System.Drawing.Point(278, 8);
+            this.final_manager_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_manager_textbox.Name = "final_manager_textbox";
-            this.final_manager_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_manager_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_manager_textbox.TabIndex = 20;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(288, 13);
+            this.label16.Location = new System.Drawing.Point(216, 11);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 16);
+            this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 19;
             this.label16.Text = "Menedżer";
             // 
             // final_haslo_textbox
             // 
-            this.final_haslo_textbox.Location = new System.Drawing.Point(96, 88);
+            this.final_haslo_textbox.Location = new System.Drawing.Point(72, 72);
+            this.final_haslo_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_haslo_textbox.Name = "final_haslo_textbox";
             this.final_haslo_textbox.PasswordChar = '*';
-            this.final_haslo_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_haslo_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_haslo_textbox.TabIndex = 2;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 91);
+            this.label9.Location = new System.Drawing.Point(10, 74);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 16);
+            this.label9.Size = new System.Drawing.Size(36, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Hasło";
             // 
             // final_nazwisko_textbox
             // 
-            this.final_nazwisko_textbox.Location = new System.Drawing.Point(96, 50);
+            this.final_nazwisko_textbox.Location = new System.Drawing.Point(72, 41);
+            this.final_nazwisko_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_nazwisko_textbox.Name = "final_nazwisko_textbox";
-            this.final_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_nazwisko_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_nazwisko_textbox.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 53);
+            this.label10.Location = new System.Drawing.Point(10, 43);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 16);
+            this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 11;
             this.label10.Text = "Nazwisko";
             // 
             // final_imie_textbox
             // 
-            this.final_imie_textbox.Location = new System.Drawing.Point(96, 10);
+            this.final_imie_textbox.Location = new System.Drawing.Point(72, 8);
+            this.final_imie_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_imie_textbox.Name = "final_imie_textbox";
-            this.final_imie_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_imie_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_imie_textbox.TabIndex = 0;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 13);
+            this.label11.Location = new System.Drawing.Point(10, 11);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(33, 16);
+            this.label11.Size = new System.Drawing.Size(26, 13);
             this.label11.TabIndex = 7;
             this.label11.Text = "Imię";
             // 
             // final_department_number_textbox
             // 
-            this.final_department_number_textbox.Location = new System.Drawing.Point(96, 199);
+            this.final_department_number_textbox.Location = new System.Drawing.Point(72, 162);
+            this.final_department_number_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_department_number_textbox.Name = "final_department_number_textbox";
-            this.final_department_number_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_department_number_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_department_number_textbox.TabIndex = 5;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 202);
+            this.label12.Location = new System.Drawing.Point(6, 164);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 16);
+            this.label12.Size = new System.Drawing.Size(64, 13);
             this.label12.TabIndex = 15;
             this.label12.Text = "Numer MPK";
             // 
             // final_department_textbox
             // 
-            this.final_department_textbox.Location = new System.Drawing.Point(96, 161);
+            this.final_department_textbox.Location = new System.Drawing.Point(72, 131);
+            this.final_department_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_department_textbox.Name = "final_department_textbox";
-            this.final_department_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_department_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_department_textbox.TabIndex = 4;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 164);
+            this.label13.Location = new System.Drawing.Point(6, 133);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 16);
+            this.label13.Size = new System.Drawing.Size(32, 13);
             this.label13.TabIndex = 12;
             this.label13.Text = "Dział";
             // 
             // final_title_textbox
             // 
-            this.final_title_textbox.Location = new System.Drawing.Point(96, 121);
+            this.final_title_textbox.Location = new System.Drawing.Point(72, 98);
+            this.final_title_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.final_title_textbox.Name = "final_title_textbox";
-            this.final_title_textbox.Size = new System.Drawing.Size(100, 22);
+            this.final_title_textbox.Size = new System.Drawing.Size(76, 20);
             this.final_title_textbox.TabIndex = 3;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 124);
+            this.label14.Location = new System.Drawing.Point(6, 101);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 16);
+            this.label14.Size = new System.Drawing.Size(32, 13);
             this.label14.TabIndex = 8;
             this.label14.Text = "Tytuł";
             // 
@@ -634,51 +669,56 @@ namespace Gui_for_powerhell
             this.User_donor_search_panel.Controls.Add(this.Donor_nazwisko_textbox);
             this.User_donor_search_panel.Controls.Add(this.label17);
             this.User_donor_search_panel.Controls.Add(this.Donor_search_button);
-            this.User_donor_search_panel.Location = new System.Drawing.Point(0, 66);
+            this.User_donor_search_panel.Location = new System.Drawing.Point(0, 54);
+            this.User_donor_search_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.User_donor_search_panel.Name = "User_donor_search_panel";
-            this.User_donor_search_panel.Size = new System.Drawing.Size(797, 319);
+            this.User_donor_search_panel.Size = new System.Drawing.Size(598, 259);
             this.User_donor_search_panel.TabIndex = 7;
             this.User_donor_search_panel.Visible = false;
             // 
             // Donor_listbox
             // 
             this.Donor_listbox.FormattingEnabled = true;
-            this.Donor_listbox.ItemHeight = 16;
-            this.Donor_listbox.Location = new System.Drawing.Point(202, 4);
+            this.Donor_listbox.Location = new System.Drawing.Point(152, 3);
+            this.Donor_listbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Donor_listbox.Name = "Donor_listbox";
-            this.Donor_listbox.Size = new System.Drawing.Size(589, 308);
+            this.Donor_listbox.Size = new System.Drawing.Size(443, 251);
             this.Donor_listbox.TabIndex = 2;
             this.Donor_listbox.SelectedIndexChanged += new System.EventHandler(this.Donor_listbox_SelectedIndexChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 13);
+            this.label18.Location = new System.Drawing.Point(10, 11);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(66, 16);
+            this.label18.Size = new System.Drawing.Size(53, 13);
             this.label18.TabIndex = 4;
             this.label18.Text = "Nazwisko";
             // 
             // Donor_nazwisko_textbox
             // 
-            this.Donor_nazwisko_textbox.Location = new System.Drawing.Point(96, 10);
+            this.Donor_nazwisko_textbox.Location = new System.Drawing.Point(72, 8);
+            this.Donor_nazwisko_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Donor_nazwisko_textbox.Name = "Donor_nazwisko_textbox";
-            this.Donor_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.Donor_nazwisko_textbox.Size = new System.Drawing.Size(76, 20);
             this.Donor_nazwisko_textbox.TabIndex = 0;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(13, 13);
+            this.label17.Location = new System.Drawing.Point(10, 11);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(0, 16);
+            this.label17.Size = new System.Drawing.Size(0, 13);
             this.label17.TabIndex = 2;
             // 
             // Donor_search_button
             // 
-            this.Donor_search_button.Location = new System.Drawing.Point(110, 44);
+            this.Donor_search_button.Location = new System.Drawing.Point(82, 36);
+            this.Donor_search_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Donor_search_button.Name = "Donor_search_button";
-            this.Donor_search_button.Size = new System.Drawing.Size(75, 23);
+            this.Donor_search_button.Size = new System.Drawing.Size(56, 19);
             this.Donor_search_button.TabIndex = 1;
             this.Donor_search_button.Text = "Search";
             this.Donor_search_button.UseVisualStyleBackColor = true;
@@ -690,43 +730,47 @@ namespace Gui_for_powerhell
             this.Reciver_search_panel.Controls.Add(this.label19);
             this.Reciver_search_panel.Controls.Add(this.Reciver_nazwisko_textbox);
             this.Reciver_search_panel.Controls.Add(this.Reciver_search_button);
-            this.Reciver_search_panel.Location = new System.Drawing.Point(0, 66);
+            this.Reciver_search_panel.Location = new System.Drawing.Point(0, 54);
+            this.Reciver_search_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Reciver_search_panel.Name = "Reciver_search_panel";
-            this.Reciver_search_panel.Size = new System.Drawing.Size(797, 319);
+            this.Reciver_search_panel.Size = new System.Drawing.Size(598, 259);
             this.Reciver_search_panel.TabIndex = 8;
             this.Reciver_search_panel.Visible = false;
             // 
             // Reciver_listbox
             // 
             this.Reciver_listbox.FormattingEnabled = true;
-            this.Reciver_listbox.ItemHeight = 16;
-            this.Reciver_listbox.Location = new System.Drawing.Point(198, 5);
+            this.Reciver_listbox.Location = new System.Drawing.Point(148, 4);
+            this.Reciver_listbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Reciver_listbox.Name = "Reciver_listbox";
-            this.Reciver_listbox.Size = new System.Drawing.Size(589, 308);
+            this.Reciver_listbox.Size = new System.Drawing.Size(443, 251);
             this.Reciver_listbox.TabIndex = 2;
             this.Reciver_listbox.SelectedIndexChanged += new System.EventHandler(this.Reciver_listbox_SelectedIndexChanged);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(9, 14);
+            this.label19.Location = new System.Drawing.Point(7, 11);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 16);
+            this.label19.Size = new System.Drawing.Size(53, 13);
             this.label19.TabIndex = 8;
             this.label19.Text = "Nazwisko";
             // 
             // Reciver_nazwisko_textbox
             // 
-            this.Reciver_nazwisko_textbox.Location = new System.Drawing.Point(92, 11);
+            this.Reciver_nazwisko_textbox.Location = new System.Drawing.Point(69, 9);
+            this.Reciver_nazwisko_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Reciver_nazwisko_textbox.Name = "Reciver_nazwisko_textbox";
-            this.Reciver_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.Reciver_nazwisko_textbox.Size = new System.Drawing.Size(76, 20);
             this.Reciver_nazwisko_textbox.TabIndex = 0;
             // 
             // Reciver_search_button
             // 
-            this.Reciver_search_button.Location = new System.Drawing.Point(106, 45);
+            this.Reciver_search_button.Location = new System.Drawing.Point(80, 37);
+            this.Reciver_search_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Reciver_search_button.Name = "Reciver_search_button";
-            this.Reciver_search_button.Size = new System.Drawing.Size(75, 23);
+            this.Reciver_search_button.Size = new System.Drawing.Size(56, 19);
             this.Reciver_search_button.TabIndex = 1;
             this.Reciver_search_button.Text = "Search";
             this.Reciver_search_button.UseVisualStyleBackColor = true;
@@ -734,6 +778,7 @@ namespace Gui_for_powerhell
             // 
             // User_modify_panel
             // 
+            this.User_modify_panel.Controls.Add(this.keep_old_proxy_checkbox);
             this.User_modify_panel.Controls.Add(this.proxyaddresses_update_checkbox);
             this.User_modify_panel.Controls.Add(this.proxyaddresses_textbox);
             this.User_modify_panel.Controls.Add(this.password_change_checkbox);
@@ -752,170 +797,202 @@ namespace Gui_for_powerhell
             this.User_modify_panel.Controls.Add(this.label21);
             this.User_modify_panel.Controls.Add(this.modify_imie_textbox);
             this.User_modify_panel.Controls.Add(this.label20);
-            this.User_modify_panel.Location = new System.Drawing.Point(0, 66);
+            this.User_modify_panel.Location = new System.Drawing.Point(0, 54);
+            this.User_modify_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.User_modify_panel.Name = "User_modify_panel";
-            this.User_modify_panel.Size = new System.Drawing.Size(797, 319);
+            this.User_modify_panel.Size = new System.Drawing.Size(598, 259);
             this.User_modify_panel.TabIndex = 9;
             this.User_modify_panel.Visible = false;
+            // 
+            // proxyaddresses_update_checkbox
+            // 
+            this.proxyaddresses_update_checkbox.AutoSize = true;
+            this.proxyaddresses_update_checkbox.Location = new System.Drawing.Point(317, 204);
+            this.proxyaddresses_update_checkbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.proxyaddresses_update_checkbox.Name = "proxyaddresses_update_checkbox";
+            this.proxyaddresses_update_checkbox.Size = new System.Drawing.Size(67, 17);
+            this.proxyaddresses_update_checkbox.TabIndex = 16;
+            this.proxyaddresses_update_checkbox.Text = "Update?";
+            this.proxyaddresses_update_checkbox.UseVisualStyleBackColor = true;
+            this.proxyaddresses_update_checkbox.CheckedChanged += new System.EventHandler(this.proxyaddresses_update_checkbox_CheckedChanged);
+            // 
+            // proxyaddresses_textbox
+            // 
+            this.proxyaddresses_textbox.Location = new System.Drawing.Point(316, 26);
+            this.proxyaddresses_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.proxyaddresses_textbox.Multiline = true;
+            this.proxyaddresses_textbox.Name = "proxyaddresses_textbox";
+            this.proxyaddresses_textbox.Size = new System.Drawing.Size(276, 172);
+            this.proxyaddresses_textbox.TabIndex = 15;
+            // 
+            // password_change_checkbox
+            // 
+            this.password_change_checkbox.AutoSize = true;
+            this.password_change_checkbox.Location = new System.Drawing.Point(190, 57);
+            this.password_change_checkbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.password_change_checkbox.Name = "password_change_checkbox";
+            this.password_change_checkbox.Size = new System.Drawing.Size(117, 17);
+            this.password_change_checkbox.TabIndex = 14;
+            this.password_change_checkbox.Text = "Change password?";
+            this.password_change_checkbox.UseVisualStyleBackColor = true;
             // 
             // modify_upn_combobox
             // 
             this.modify_upn_combobox.FormattingEnabled = true;
-            this.modify_upn_combobox.Location = new System.Drawing.Point(147, 189);
+            this.modify_upn_combobox.Location = new System.Drawing.Point(110, 154);
+            this.modify_upn_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modify_upn_combobox.Name = "modify_upn_combobox";
-            this.modify_upn_combobox.Size = new System.Drawing.Size(121, 24);
+            this.modify_upn_combobox.Size = new System.Drawing.Size(92, 21);
             this.modify_upn_combobox.TabIndex = 13;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(314, 6);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(82, 13);
+            this.label27.TabIndex = 11;
+            this.label27.Text = "ProxyAddresses";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(12, 193);
+            this.label26.Location = new System.Drawing.Point(9, 157);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(124, 16);
+            this.label26.Size = new System.Drawing.Size(97, 13);
             this.label26.TabIndex = 12;
             this.label26.Text = "User Princial Name";
             // 
             // modify_departmentnumber_textbox
             // 
-            this.modify_departmentnumber_textbox.Location = new System.Drawing.Point(147, 160);
+            this.modify_departmentnumber_textbox.Location = new System.Drawing.Point(110, 130);
+            this.modify_departmentnumber_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modify_departmentnumber_textbox.Name = "modify_departmentnumber_textbox";
-            this.modify_departmentnumber_textbox.Size = new System.Drawing.Size(100, 22);
+            this.modify_departmentnumber_textbox.Size = new System.Drawing.Size(76, 20);
             this.modify_departmentnumber_textbox.TabIndex = 11;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(12, 163);
+            this.label24.Location = new System.Drawing.Point(9, 132);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(79, 16);
+            this.label24.Size = new System.Drawing.Size(64, 13);
             this.label24.TabIndex = 10;
             this.label24.Text = "Numer MPK";
             // 
             // modify_department_textbox
             // 
-            this.modify_department_textbox.Location = new System.Drawing.Point(147, 129);
+            this.modify_department_textbox.Location = new System.Drawing.Point(110, 105);
+            this.modify_department_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modify_department_textbox.Name = "modify_department_textbox";
-            this.modify_department_textbox.Size = new System.Drawing.Size(100, 22);
+            this.modify_department_textbox.Size = new System.Drawing.Size(76, 20);
             this.modify_department_textbox.TabIndex = 9;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(12, 132);
+            this.label25.Location = new System.Drawing.Point(9, 107);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 16);
+            this.label25.Size = new System.Drawing.Size(32, 13);
             this.label25.TabIndex = 8;
             this.label25.Text = "Dział";
             // 
             // modify_title_textbox
             // 
-            this.modify_title_textbox.Location = new System.Drawing.Point(147, 100);
+            this.modify_title_textbox.Location = new System.Drawing.Point(110, 81);
+            this.modify_title_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modify_title_textbox.Name = "modify_title_textbox";
-            this.modify_title_textbox.Size = new System.Drawing.Size(100, 22);
+            this.modify_title_textbox.Size = new System.Drawing.Size(76, 20);
             this.modify_title_textbox.TabIndex = 7;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(12, 103);
+            this.label22.Location = new System.Drawing.Point(9, 84);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(40, 16);
+            this.label22.Size = new System.Drawing.Size(32, 13);
             this.label22.TabIndex = 6;
             this.label22.Text = "Tytuł";
             // 
             // modify_haslo_textbox
             // 
-            this.modify_haslo_textbox.Location = new System.Drawing.Point(147, 69);
+            this.modify_haslo_textbox.Location = new System.Drawing.Point(110, 56);
+            this.modify_haslo_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modify_haslo_textbox.Name = "modify_haslo_textbox";
             this.modify_haslo_textbox.PasswordChar = '*';
-            this.modify_haslo_textbox.Size = new System.Drawing.Size(100, 22);
+            this.modify_haslo_textbox.Size = new System.Drawing.Size(76, 20);
             this.modify_haslo_textbox.TabIndex = 5;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(12, 72);
+            this.label23.Location = new System.Drawing.Point(9, 58);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(47, 16);
+            this.label23.Size = new System.Drawing.Size(36, 13);
             this.label23.TabIndex = 4;
             this.label23.Text = "Hasło";
             // 
             // modify_nazwisko_textbox
             // 
             this.modify_nazwisko_textbox.Enabled = false;
-            this.modify_nazwisko_textbox.Location = new System.Drawing.Point(147, 38);
+            this.modify_nazwisko_textbox.Location = new System.Drawing.Point(110, 31);
+            this.modify_nazwisko_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modify_nazwisko_textbox.Name = "modify_nazwisko_textbox";
-            this.modify_nazwisko_textbox.Size = new System.Drawing.Size(100, 22);
+            this.modify_nazwisko_textbox.Size = new System.Drawing.Size(76, 20);
             this.modify_nazwisko_textbox.TabIndex = 3;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(12, 41);
+            this.label21.Location = new System.Drawing.Point(9, 33);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(66, 16);
+            this.label21.Size = new System.Drawing.Size(53, 13);
             this.label21.TabIndex = 2;
             this.label21.Text = "Nazwisko";
             // 
             // modify_imie_textbox
             // 
             this.modify_imie_textbox.Enabled = false;
-            this.modify_imie_textbox.Location = new System.Drawing.Point(147, 7);
+            this.modify_imie_textbox.Location = new System.Drawing.Point(110, 6);
+            this.modify_imie_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modify_imie_textbox.Name = "modify_imie_textbox";
-            this.modify_imie_textbox.Size = new System.Drawing.Size(100, 22);
+            this.modify_imie_textbox.Size = new System.Drawing.Size(76, 20);
             this.modify_imie_textbox.TabIndex = 1;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(12, 10);
+            this.label20.Location = new System.Drawing.Point(9, 8);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(33, 16);
+            this.label20.Size = new System.Drawing.Size(26, 13);
             this.label20.TabIndex = 0;
             this.label20.Text = "Imię";
             // 
-            // password_change_checkbox
+            // keep_old_proxy_checkbox
             // 
-            this.password_change_checkbox.AutoSize = true;
-            this.password_change_checkbox.Location = new System.Drawing.Point(254, 70);
-            this.password_change_checkbox.Name = "password_change_checkbox";
-            this.password_change_checkbox.Size = new System.Drawing.Size(143, 20);
-            this.password_change_checkbox.TabIndex = 14;
-            this.password_change_checkbox.Text = "Change password?";
-            this.password_change_checkbox.UseVisualStyleBackColor = true;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(418, 7);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(108, 16);
-            this.label27.TabIndex = 11;
-            this.label27.Text = "ProxyAddresses";
-            // 
-            // proxyaddresses_textbox
-            // 
-            this.proxyaddresses_textbox.Location = new System.Drawing.Point(421, 32);
-            this.proxyaddresses_textbox.Multiline = true;
-            this.proxyaddresses_textbox.Name = "proxyaddresses_textbox";
-            this.proxyaddresses_textbox.Size = new System.Drawing.Size(366, 276);
-            this.proxyaddresses_textbox.TabIndex = 15;
-            // 
-            // proxyaddresses_update_checkbox
-            // 
-            this.proxyaddresses_update_checkbox.AutoSize = true;
-            this.proxyaddresses_update_checkbox.Location = new System.Drawing.Point(532, 5);
-            this.proxyaddresses_update_checkbox.Name = "proxyaddresses_update_checkbox";
-            this.proxyaddresses_update_checkbox.Size = new System.Drawing.Size(79, 20);
-            this.proxyaddresses_update_checkbox.TabIndex = 16;
-            this.proxyaddresses_update_checkbox.Text = "Update?";
-            this.proxyaddresses_update_checkbox.UseVisualStyleBackColor = true;
+            this.keep_old_proxy_checkbox.AutoSize = true;
+            this.keep_old_proxy_checkbox.Enabled = false;
+            this.keep_old_proxy_checkbox.Location = new System.Drawing.Point(316, 225);
+            this.keep_old_proxy_checkbox.Margin = new System.Windows.Forms.Padding(2);
+            this.keep_old_proxy_checkbox.Name = "keep_old_proxy_checkbox";
+            this.keep_old_proxy_checkbox.Size = new System.Drawing.Size(74, 17);
+            this.keep_old_proxy_checkbox.TabIndex = 17;
+            this.keep_old_proxy_checkbox.Text = "Keep old?";
+            this.keep_old_proxy_checkbox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.User_modify_panel);
             this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.User_donor_search_panel);
@@ -927,7 +1004,7 @@ namespace Gui_for_powerhell
             this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "AD helper";
             this.Bottom_buttons_panel.ResumeLayout(false);
@@ -1038,6 +1115,7 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.CheckBox proxyaddresses_update_checkbox;
         private System.Windows.Forms.TextBox proxyaddresses_textbox;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.CheckBox keep_old_proxy_checkbox;
     }
 }
 
