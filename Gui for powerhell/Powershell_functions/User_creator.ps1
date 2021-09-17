@@ -32,6 +32,15 @@ if ($title -ne "") {Set-ADUser $samusername -Replace @{title = $title} -Credenti
 if ($dp -ne "") {Set-ADUser $samusername -Replace @{department=$dp} -Credential $user_credentials}
 if ($displayname -ne "") {Set-ADUser $samusername -Replace @{displayName=$displayname} -Credential $user_credentials}
 
+if (Test-Path "e_id.txt") {
+    $id = Get-Content "e_id.txt"
+    Set-ADUser $samusername -Replace @{EmployeeID=$id}
+}
+if (Test-Path "e_nb.txt") {
+    $nb = Get-Content "e_nb.txt"
+    Set-ADUser $samusername -Replace @{EmployeeNumber=$nb}
+}
+
 $managerarray = Get-ADUser -SearchBase $oued_mng -Filter "(sn -eq '$manager_surname')" -Properties department,DistinguishedName | Where-Object {$_.DistinguishedName -notlike "*OU=Disabled*"} | select Name,department,DistinguishedName
 $chosenone = $managerarray[$managernumber].DistinguishedName
 Set-ADUser $samusername -Replace @{manager=$chosenone} -Credential $user_credentials

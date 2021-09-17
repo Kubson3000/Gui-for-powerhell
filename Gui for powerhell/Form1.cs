@@ -41,7 +41,16 @@ namespace Gui_for_powerhell
             string path = "powershell_functions/user_creator.ps1";
             string script = File.ReadAllText(path);
             string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$input3", new_password).Replace("$input4", title).Replace("$input5", department).Replace("$input6", department_number).Replace("$input7", manager_name).Replace("$input8", manager_number).Replace("$input9", ou_number).Replace("$user_input", username).Replace("$pass_input", password);
-            Console.WriteLine(edited_script);
+            if (employee_id_textbox.Text != "")
+            {
+                string id = employee_id_textbox.Text;
+                File.WriteAllText("e_id.txt", id);
+            }
+            if (employee_number_textbox.Text != "")
+            {
+                string number = employee_number_textbox.Text;
+                File.WriteAllText("e_nb.txt", number);
+            }
             RunScript(edited_script);
             string result = File.ReadAllText("result.txt");
             if (result == "1")
@@ -437,10 +446,12 @@ namespace Gui_for_powerhell
             if (rgx.IsMatch(department_number))
             {
                 Next_button.Enabled = true;
+                optional_attribiutes_panel.Visible = true;
             }
             else
             {
                 MessageBox.Show("Numer MPK jest nieprawidłowy, format prawidłowego numeru xxx-xx");
+                Next_button.Enabled = false;
             }
         }
 
