@@ -29,6 +29,7 @@ namespace Gui_for_powerhell
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Bottom_buttons_panel = new System.Windows.Forms.FlowLayoutPanel();
             this.Next_button = new System.Windows.Forms.Button();
             this.Back_button = new System.Windows.Forms.Button();
@@ -117,6 +118,10 @@ namespace Gui_for_powerhell
             this.label28 = new System.Windows.Forms.Label();
             this.employee_id_textbox = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.final_number_textbox = new System.Windows.Forms.TextBox();
+            this.final_id_textbox = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -511,6 +516,10 @@ namespace Gui_for_powerhell
             // 
             // User_create_finish_panel
             // 
+            this.User_create_finish_panel.Controls.Add(this.final_number_textbox);
+            this.User_create_finish_panel.Controls.Add(this.final_id_textbox);
+            this.User_create_finish_panel.Controls.Add(this.label30);
+            this.User_create_finish_panel.Controls.Add(this.label31);
             this.User_create_finish_panel.Controls.Add(this.final_ou_fullname_textbox);
             this.User_create_finish_panel.Controls.Add(this.label15);
             this.User_create_finish_panel.Controls.Add(this.final_manager_textbox);
@@ -1043,22 +1052,60 @@ namespace Gui_for_powerhell
             this.label29.TabIndex = 8;
             this.label29.Text = "Numer karty";
             // 
+            // final_number_textbox
+            // 
+            this.final_number_textbox.Location = new System.Drawing.Point(480, 42);
+            this.final_number_textbox.Margin = new System.Windows.Forms.Padding(2);
+            this.final_number_textbox.Name = "final_number_textbox";
+            this.final_number_textbox.Size = new System.Drawing.Size(98, 20);
+            this.final_number_textbox.TabIndex = 26;
+            // 
+            // final_id_textbox
+            // 
+            this.final_id_textbox.Location = new System.Drawing.Point(480, 9);
+            this.final_id_textbox.Margin = new System.Windows.Forms.Padding(2);
+            this.final_id_textbox.Name = "final_id_textbox";
+            this.final_id_textbox.Size = new System.Drawing.Size(98, 20);
+            this.final_id_textbox.TabIndex = 25;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(379, 45);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(96, 13);
+            this.label30.TabIndex = 24;
+            this.label30.Text = "Numer pracownika";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(379, 13);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(64, 13);
+            this.label31.TabIndex = 23;
+            this.label31.Text = "Numer karty";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.User_modify_panel);
             this.Controls.Add(this.User_donor_search_panel);
             this.Controls.Add(this.Reciver_search_panel);
             this.Controls.Add(this.Credencials_test_panel);
-            this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.Action_choose_panel);
             this.Controls.Add(this.Manager_panel);
             this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "AD helper";
@@ -1178,6 +1225,10 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.TextBox employee_id_textbox;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox final_number_textbox;
+        private System.Windows.Forms.TextBox final_id_textbox;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
     }
 }
 

@@ -19,7 +19,7 @@ namespace Gui_for_powerhell
     {
         public int current_page = 1;
         public int choosen = -1;
-        public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
+        public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, number, id, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
         public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number;
         public string[] upn = new string[] { "@korona.wielun.pl", "@coronacandles.com" };
         public int def_upn;
@@ -34,21 +34,48 @@ namespace Gui_for_powerhell
             final_department_number_textbox.Text = department_number;
             final_manager_textbox.Text = manager_fullname;
             final_ou_fullname_textbox.Text = ou_fullname;
+            final_id_textbox.Text = id;
+            final_number_textbox.Text = number;
+        }
+
+        void change_checker ()
+        {
+            if (final_title_textbox.Text != title)
+            {
+                title = final_title_textbox.Text;
+            }
+            if (final_department_textbox.Text != department)
+            {
+                department = final_department_textbox.Text;
+            }
+            if (final_department_number_textbox.Text != department_number)
+            {
+                department_number = final_department_number_textbox.Text;
+            }
+            if (final_id_textbox.Text != id)
+            {
+                id = final_id_textbox.Text;
+            }
+            if (final_number_textbox.Text != number)
+            {
+                number = final_number_textbox.Text;
+            }
         }
 
         void user_creator ()
         {
+            change_checker();
             string path = "powershell_functions/user_creator.ps1";
             string script = File.ReadAllText(path);
             string edited_script = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$input3", new_password).Replace("$input4", title).Replace("$input5", department).Replace("$input6", department_number).Replace("$input7", manager_name).Replace("$input8", manager_number).Replace("$input9", ou_number).Replace("$user_input", username).Replace("$pass_input", password);
             if (employee_id_textbox.Text != "")
             {
-                string id = employee_id_textbox.Text;
+                id = employee_id_textbox.Text;
                 File.WriteAllText("e_id.txt", id);
             }
             if (employee_number_textbox.Text != "")
             {
-                string number = employee_number_textbox.Text;
+                number = employee_number_textbox.Text;
                 File.WriteAllText("e_nb.txt", number);
             }
             RunScript(edited_script);
