@@ -122,7 +122,7 @@ namespace Gui_for_powerhell
             this.label21 = new System.Windows.Forms.Label();
             this.modify_imie_textbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.user_deletion = new System.Windows.Forms.Panel();
+            this.user_deletion_panel = new System.Windows.Forms.Panel();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -1089,19 +1089,20 @@ namespace Gui_for_powerhell
             this.label20.TabIndex = 0;
             this.label20.Text = "Imię";
             // 
-            // user_deletion
+            // user_deletion_panel
             // 
-            this.user_deletion.Location = new System.Drawing.Point(0, 54);
-            this.user_deletion.Name = "user_deletion";
-            this.user_deletion.Size = new System.Drawing.Size(598, 259);
-            this.user_deletion.TabIndex = 10;
+            this.user_deletion_panel.Location = new System.Drawing.Point(0, 54);
+            this.user_deletion_panel.Name = "user_deletion_panel";
+            this.user_deletion_panel.Size = new System.Drawing.Size(598, 259);
+            this.user_deletion_panel.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.user_deletion);
+            this.Controls.Add(this.user_deletion_panel);
+            this.Controls.Add(this.Manager_panel);
             this.Controls.Add(this.Credencials_test_panel);
             this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.User_name_pass_input);
@@ -1109,7 +1110,6 @@ namespace Gui_for_powerhell
             this.Controls.Add(this.User_donor_search_panel);
             this.Controls.Add(this.Reciver_search_panel);
             this.Controls.Add(this.Action_choose_panel);
-            this.Controls.Add(this.Manager_panel);
             this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
@@ -1238,7 +1238,7 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.TextBox final_id_textbox;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Panel user_deletion;
+        private System.Windows.Forms.Panel user_deletion_panel;
     }
 }
 
