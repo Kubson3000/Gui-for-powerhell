@@ -20,7 +20,7 @@ namespace Gui_for_powerhell
         public int current_page = 1;
         public int choosen = -1;
         public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, number, id, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
-        public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number;
+        public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number, deleted_index;
         public string[] upn = new string[] { "@korona.wielun.pl", "@coronacandles.com" };
         public int def_upn;
 
@@ -232,6 +232,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             break;
@@ -249,6 +250,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             choosen = -1;
@@ -305,6 +307,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
                             User_donor_search_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
@@ -329,7 +332,63 @@ namespace Gui_for_powerhell
                             break;
                     }
                     break;
+                case 2: //Usuwanie użytkownika
+                    switch (current_page)
+                    {
+                        case 2:
+                            Main_label.Text = "Wybierz akcję";
+                            Credencials_test_panel.Visible = false;
+                            Action_choose_panel.Visible = true;
+                            User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
+                            User_donor_search_panel.Visible = false;
+                            Back_button.Enabled = true;
+                            Next_button.Enabled = false;
+                            choosen = -1;
+                            break;
+                        case 3:
+                            Main_label.Text = "Wpisz nazwę, a nastepnie wybierz użytkownika do usunięcia";
+                            Credencials_test_panel.Visible = false;
+                            Action_choose_panel.Visible = false;
+                            user_deletion_panel.Visible = true;
+                            Next_button.Enabled = false;
+                            break;
+                    }
+                    break;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void user_deletion_Button_Click(object sender, EventArgs e)
+        {
+            Next_button.Enabled = false;
+            string deleted_surname = user_deletion_TextBox.Text;
+            string path = "Powershell_functions/User_search.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", deleted_surname);
+            RunScript(edited_script);
+            string results = File.ReadAllText("result.txt");
+            StringReader strReader = new StringReader(results);
+            while (true)
+            {
+                string temp = strReader.ReadLine();
+                if (temp != null)
+                {
+                    user_deletion_ListBox.Items.Add(temp);
+                }
+                else { break; }
+            }
+            File.Delete("result.txt");
+        }
+
+        private void user_deletion_ListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Next_button.Enabled = true;
+            deleted_index = user_deletion_ListBox.SelectedIndex.ToString();
         }
 
         private void Reciver_listbox_SelectedIndexChanged(object sender, EventArgs e)
