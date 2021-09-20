@@ -20,7 +20,7 @@ namespace Gui_for_powerhell
         public int current_page = 1;
         public int choosen = -1;
         public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, number, id, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
-        public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number, deleted_index;
+        public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number, deleted_index, deleted_surname;
         public string[] upn = new string[] { "@korona.wielun.pl", "@coronacandles.com" };
         public int def_upn;
 
@@ -213,6 +213,21 @@ namespace Gui_for_powerhell
             }
         }
 
+        void disable_confirm()
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz wyłączyć użytkownika?", "Eekum bokum", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string path = "powershell_functions/User_deletion.ps1";
+                string script = File.ReadAllText(path);
+                string edited_script = script.Replace("$input1", deleted_surname).Replace("$input2", deleted_index).Replace("$user_input", username).Replace("$pass_input", password);
+                RunScript(edited_script);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+        }
         void Page_switcher(int current_page)
         {
             switch (choosen)
@@ -366,10 +381,10 @@ namespace Gui_for_powerhell
         private void user_deletion_Button_Click(object sender, EventArgs e)
         {
             Next_button.Enabled = false;
-            string deleted_surname = user_deletion_TextBox.Text;
+            deleted_surname = user_deletion_TextBox.Text;
             string path = "Powershell_functions/User_search.ps1";
             string script = File.ReadAllText(path);
-            string edited_script = script.Replace("$input1", deleted_surname);
+            string edited_script = script.Replace("$input1", deleted_surname).Replace("$user_input", username).Replace("$pass_input", password);
             RunScript(edited_script);
             string results = File.ReadAllText("result.txt");
             StringReader strReader = new StringReader(results);
@@ -567,6 +582,10 @@ namespace Gui_for_powerhell
             else if ((choosen == 0) && (current_page == 7))
             {
                 edit_user();
+            }
+            else if ((choosen == 2) && (current_page == 3))
+            {
+                disable_confirm();
             }
             else
             {
