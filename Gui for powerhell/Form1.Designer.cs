@@ -123,9 +123,6 @@ namespace Gui_for_powerhell
             this.modify_imie_textbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.user_deletion_panel = new System.Windows.Forms.Panel();
-            this.user_deletion_ListBox = new System.Windows.Forms.ListBox();
-            this.user_deletion_Button = new System.Windows.Forms.Button();
-            this.user_deletion_TextBox = new System.Windows.Forms.TextBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -139,7 +136,6 @@ namespace Gui_for_powerhell
             this.User_donor_search_panel.SuspendLayout();
             this.Reciver_search_panel.SuspendLayout();
             this.User_modify_panel.SuspendLayout();
-            this.user_deletion_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bottom_buttons_panel
@@ -271,8 +267,7 @@ namespace Gui_for_powerhell
             this.Choose_listbox.FormattingEnabled = true;
             this.Choose_listbox.Items.AddRange(new object[] {
             "Stworzyć nowego użytkownika",
-            "Skopiować przynależności grup",
-            "Wyłącz użytkownika"});
+            "Skopiować przynależności grup"});
             this.Choose_listbox.Location = new System.Drawing.Point(184, 56);
             this.Choose_listbox.Name = "Choose_listbox";
             this.Choose_listbox.Size = new System.Drawing.Size(196, 82);
@@ -1096,42 +1091,10 @@ namespace Gui_for_powerhell
             // 
             // user_deletion_panel
             // 
-            this.user_deletion_panel.Controls.Add(this.user_deletion_ListBox);
-            this.user_deletion_panel.Controls.Add(this.user_deletion_Button);
-            this.user_deletion_panel.Controls.Add(this.user_deletion_TextBox);
             this.user_deletion_panel.Location = new System.Drawing.Point(0, 54);
-            this.user_deletion_panel.Margin = new System.Windows.Forms.Padding(2);
             this.user_deletion_panel.Name = "user_deletion_panel";
-            this.user_deletion_panel.Size = new System.Drawing.Size(596, 260);
+            this.user_deletion_panel.Size = new System.Drawing.Size(598, 259);
             this.user_deletion_panel.TabIndex = 10;
-            this.user_deletion_panel.Visible = false;
-            // 
-            // user_deletion_ListBox
-            // 
-            this.user_deletion_ListBox.FormattingEnabled = true;
-            this.user_deletion_ListBox.Location = new System.Drawing.Point(9, 36);
-            this.user_deletion_ListBox.Name = "user_deletion_ListBox";
-            this.user_deletion_ListBox.Size = new System.Drawing.Size(579, 225);
-            this.user_deletion_ListBox.TabIndex = 2;
-            this.user_deletion_ListBox.SelectedIndexChanged += new System.EventHandler(this.user_deletion_ListBox_SelectedIndexChanged);
-            // 
-            // user_deletion_Button
-            // 
-            this.user_deletion_Button.Location = new System.Drawing.Point(513, 8);
-            this.user_deletion_Button.Name = "user_deletion_Button";
-            this.user_deletion_Button.Size = new System.Drawing.Size(75, 23);
-            this.user_deletion_Button.TabIndex = 1;
-            this.user_deletion_Button.Text = "Search";
-            this.user_deletion_Button.UseVisualStyleBackColor = true;
-            this.user_deletion_Button.Click += new System.EventHandler(this.user_deletion_Button_Click);
-            // 
-            // user_deletion_TextBox
-            // 
-            this.user_deletion_TextBox.Location = new System.Drawing.Point(9, 9);
-            this.user_deletion_TextBox.Name = "user_deletion_TextBox";
-            this.user_deletion_TextBox.Size = new System.Drawing.Size(498, 20);
-            this.user_deletion_TextBox.TabIndex = 0;
-            this.user_deletion_TextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
@@ -1139,14 +1102,14 @@ namespace Gui_for_powerhell
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.user_deletion_panel);
-            this.Controls.Add(this.Action_choose_panel);
+            this.Controls.Add(this.Manager_panel);
+            this.Controls.Add(this.Credencials_test_panel);
             this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.User_modify_panel);
             this.Controls.Add(this.User_donor_search_panel);
             this.Controls.Add(this.Reciver_search_panel);
-            this.Controls.Add(this.Credencials_test_panel);
-            this.Controls.Add(this.Manager_panel);
+            this.Controls.Add(this.Action_choose_panel);
             this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
@@ -1178,8 +1141,6 @@ namespace Gui_for_powerhell
             this.Reciver_search_panel.PerformLayout();
             this.User_modify_panel.ResumeLayout(false);
             this.User_modify_panel.PerformLayout();
-            this.user_deletion_panel.ResumeLayout(false);
-            this.user_deletion_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1278,9 +1239,6 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Panel user_deletion_panel;
-        private System.Windows.Forms.TextBox user_deletion_TextBox;
-        private System.Windows.Forms.ListBox user_deletion_ListBox;
-        private System.Windows.Forms.Button user_deletion_Button;
     }
 }
 
