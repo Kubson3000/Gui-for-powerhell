@@ -218,7 +218,7 @@ namespace Gui_for_powerhell
             DialogResult dialogResult = MessageBox.Show("Czy chcesz wyłączyć użytkownika?", "Eekum bokum", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string path = "powershell_functions/User_deletion.ps1";
+                string path = "powershell_functions/User_disable.ps1";
                 string script = File.ReadAllText(path);
                 string edited_script = script.Replace("$input1", deleted_surname).Replace("$input2", deleted_index).Replace("$user_input", username).Replace("$pass_input", password);
                 RunScript(edited_script);
@@ -247,7 +247,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
-                            user_deletion_panel.Visible = false;
+                            user_disable_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             break;
@@ -265,7 +265,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
-                            user_deletion_panel.Visible = false;
+                            user_disable_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             choosen = -1;
@@ -322,7 +322,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
-                            user_deletion_panel.Visible = false;
+                            user_disable_panel.Visible = false;
                             User_donor_search_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
@@ -347,7 +347,7 @@ namespace Gui_for_powerhell
                             break;
                     }
                     break;
-                case 2: //Usuwanie użytkownika
+                case 2: // Wyłączanie użytkownika
                     switch (current_page)
                     {
                         case 2:
@@ -355,17 +355,17 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
-                            user_deletion_panel.Visible = false;
+                            user_disable_panel.Visible = false;
                             User_donor_search_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             choosen = -1;
                             break;
                         case 3:
-                            Main_label.Text = "Wpisz nazwę, a nastepnie wybierz użytkownika do usunięcia";
+                            Main_label.Text = "Wpisz nazwę, a nastepnie wybierz użytkownika do wyłączenia";
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = false;
-                            user_deletion_panel.Visible = true;
+                            user_disable_panel.Visible = true;
                             Next_button.Enabled = false;
                             break;
                     }
@@ -378,10 +378,16 @@ namespace Gui_for_powerhell
 
         }
 
-        private void user_deletion_Button_Click(object sender, EventArgs e)
+        private void user_disable_ListBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            Next_button.Enabled = true;
+            deleted_index = user_disable_ListBox.SelectedIndex.ToString();
+        }
+
+        private void user_disable_Button_Click_1(object sender, EventArgs e)
         {
             Next_button.Enabled = false;
-            deleted_surname = user_deletion_TextBox.Text;
+            deleted_surname = user_disable_TextBox.Text;
             string path = "Powershell_functions/User_search.ps1";
             string script = File.ReadAllText(path);
             string edited_script = script.Replace("$input1", deleted_surname).Replace("$user_input", username).Replace("$pass_input", password);
@@ -393,17 +399,11 @@ namespace Gui_for_powerhell
                 string temp = strReader.ReadLine();
                 if (temp != null)
                 {
-                    user_deletion_ListBox.Items.Add(temp);
+                    user_disable_ListBox.Items.Add(temp);
                 }
                 else { break; }
             }
             File.Delete("result.txt");
-        }
-
-        private void user_deletion_ListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Next_button.Enabled = true;
-            deleted_index = user_deletion_ListBox.SelectedIndex.ToString();
         }
 
         private void Reciver_listbox_SelectedIndexChanged(object sender, EventArgs e)

@@ -122,7 +122,10 @@ namespace Gui_for_powerhell
             this.label21 = new System.Windows.Forms.Label();
             this.modify_imie_textbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.user_deletion_panel = new System.Windows.Forms.Panel();
+            this.user_disable_panel = new System.Windows.Forms.Panel();
+            this.user_disable_Button = new System.Windows.Forms.Button();
+            this.user_disable_TextBox = new System.Windows.Forms.TextBox();
+            this.user_disable_ListBox = new System.Windows.Forms.ListBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -136,6 +139,7 @@ namespace Gui_for_powerhell
             this.User_donor_search_panel.SuspendLayout();
             this.Reciver_search_panel.SuspendLayout();
             this.User_modify_panel.SuspendLayout();
+            this.user_disable_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bottom_buttons_panel
@@ -267,7 +271,8 @@ namespace Gui_for_powerhell
             this.Choose_listbox.FormattingEnabled = true;
             this.Choose_listbox.Items.AddRange(new object[] {
             "Stworzyć nowego użytkownika",
-            "Skopiować przynależności grup"});
+            "Skopiować przynależności grup",
+            "Wyłączyć użytkownika"});
             this.Choose_listbox.Location = new System.Drawing.Point(184, 56);
             this.Choose_listbox.Name = "Choose_listbox";
             this.Choose_listbox.Size = new System.Drawing.Size(196, 82);
@@ -1089,27 +1094,57 @@ namespace Gui_for_powerhell
             this.label20.TabIndex = 0;
             this.label20.Text = "Imię";
             // 
-            // user_deletion_panel
+            // user_disable_panel
             // 
-            this.user_deletion_panel.Location = new System.Drawing.Point(0, 54);
-            this.user_deletion_panel.Name = "user_deletion_panel";
-            this.user_deletion_panel.Size = new System.Drawing.Size(598, 259);
-            this.user_deletion_panel.TabIndex = 10;
+            this.user_disable_panel.Controls.Add(this.user_disable_ListBox);
+            this.user_disable_panel.Controls.Add(this.user_disable_TextBox);
+            this.user_disable_panel.Controls.Add(this.user_disable_Button);
+            this.user_disable_panel.Location = new System.Drawing.Point(0, 54);
+            this.user_disable_panel.Name = "user_disable_panel";
+            this.user_disable_panel.Size = new System.Drawing.Size(598, 259);
+            this.user_disable_panel.TabIndex = 10;
+            this.user_disable_panel.Visible = false;
+            // 
+            // user_disable_Button
+            // 
+            this.user_disable_Button.Location = new System.Drawing.Point(513, 6);
+            this.user_disable_Button.Name = "user_disable_Button";
+            this.user_disable_Button.Size = new System.Drawing.Size(75, 23);
+            this.user_disable_Button.TabIndex = 0;
+            this.user_disable_Button.Text = "Search";
+            this.user_disable_Button.UseVisualStyleBackColor = true;
+            this.user_disable_Button.Click += new System.EventHandler(this.user_disable_Button_Click_1);
+            // 
+            // user_disable_TextBox
+            // 
+            this.user_disable_TextBox.Location = new System.Drawing.Point(6, 8);
+            this.user_disable_TextBox.Name = "user_disable_TextBox";
+            this.user_disable_TextBox.Size = new System.Drawing.Size(501, 20);
+            this.user_disable_TextBox.TabIndex = 1;
+            // 
+            // user_disable_ListBox
+            // 
+            this.user_disable_ListBox.FormattingEnabled = true;
+            this.user_disable_ListBox.Location = new System.Drawing.Point(6, 31);
+            this.user_disable_ListBox.Name = "user_disable_ListBox";
+            this.user_disable_ListBox.Size = new System.Drawing.Size(582, 225);
+            this.user_disable_ListBox.TabIndex = 2;
+            this.user_disable_ListBox.SelectedIndexChanged += new System.EventHandler(this.user_disable_ListBox_SelectedIndexChanged_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.user_disable_panel);
+            this.Controls.Add(this.Action_choose_panel);
             this.Controls.Add(this.Credencials_test_panel);
             this.Controls.Add(this.Manager_panel);
-            this.Controls.Add(this.user_deletion_panel);
             this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.User_modify_panel);
             this.Controls.Add(this.User_donor_search_panel);
             this.Controls.Add(this.Reciver_search_panel);
-            this.Controls.Add(this.Action_choose_panel);
             this.Controls.Add(this.Ou_choose_panel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Bottom_buttons_panel);
@@ -1141,6 +1176,8 @@ namespace Gui_for_powerhell
             this.Reciver_search_panel.PerformLayout();
             this.User_modify_panel.ResumeLayout(false);
             this.User_modify_panel.PerformLayout();
+            this.user_disable_panel.ResumeLayout(false);
+            this.user_disable_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1238,7 +1275,10 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.TextBox final_id_textbox;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Panel user_deletion_panel;
+        private System.Windows.Forms.Panel user_disable_panel;
+        private System.Windows.Forms.ListBox user_disable_ListBox;
+        private System.Windows.Forms.TextBox user_disable_TextBox;
+        private System.Windows.Forms.Button user_disable_Button;
     }
 }
 
