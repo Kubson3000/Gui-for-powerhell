@@ -13,7 +13,7 @@ if ([bool] (Get-ADUser -Filter { SamAccountName -eq $samusername })) {
 	$result_nb = 1 # Istnieje (pełne imie)
 	New-Item -Path "powershell_functions" -Name "san.txt" -Value $samusername
 }
-elseif ([bool] (Get-ADUser -Filter { SamAccountName -eq $shortsamusername })) {
+elseif (([bool] (Get-ADUser -Filter { SamAccountName -eq $shortsamusername })) -and ((Get-ADUser $shortsamusername).givenname -eq $imie )) {
 	$result_nb = 2 # Istnieje (iniciał)
 	New-Item -Path "powershell_functions" -Name "san.txt" -Value $shortsamusername
 }

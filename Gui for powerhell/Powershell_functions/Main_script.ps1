@@ -128,7 +128,7 @@ if ($akcja -eq 1) { # Tworzenie nowego konta AD
                 $samusername = $imiel + "." + $nazwiskol
             }
         }
-        elseif (([bool] (Get-ADUser -Filter { SamAccountName -eq $shortsamusername })) -and ($short -eq 0)) {
+        elseif (([bool] (Get-ADUser -Filter { SamAccountName -eq $shortsamusername })) -and ((Get-ADUser $shortsamusername).givenname -eq $imie )) -and ($short -eq 0)) {
             Write-Host "Znaleziono użytkownika o podanym iminiu i nazwisku.`n"
             Get-ADUser $shortsamusername -Properties proxyAddresses -Credential $user_credentials
             Write-Host "Co chcesz zrobić?`n1.Zaktualizować istniejący profil`n2.Utworzyć inny"
