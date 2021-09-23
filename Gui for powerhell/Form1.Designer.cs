@@ -1101,9 +1101,9 @@ namespace Gui_for_powerhell
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.user_deletion_panel);
-            this.Controls.Add(this.Manager_panel);
             this.Controls.Add(this.Credencials_test_panel);
+            this.Controls.Add(this.Manager_panel);
+            this.Controls.Add(this.user_deletion_panel);
             this.Controls.Add(this.User_create_finish_panel);
             this.Controls.Add(this.User_name_pass_input);
             this.Controls.Add(this.User_modify_panel);
