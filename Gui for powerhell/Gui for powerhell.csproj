@@ -108,6 +108,9 @@
     <None Include="Powershell_functions\User_propeties_getter.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Powershell_functions\User_deletion.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Powershell_functions\User_search.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

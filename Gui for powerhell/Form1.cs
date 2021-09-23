@@ -17,15 +17,14 @@ namespace Gui_for_powerhell
 {
     public partial class Form1 : Form
     {
-        // Global variables
         public int current_page = 1;
         public int choosen = -1;
         public string new_imie, new_nazwisko, new_password, ou_list, ou_fullname, manager_list, title, department, department_number, number, id, manager_name, manager_fullname, ou_name, username, password, ou_number, manager_number;
-        public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number;
+        public string donor_nazwisko, donor_number, reciver_nazwisko, reciver_number, deleted_index, deleted_surname;
         public string[] upn = new string[] { "@korona.wielun.pl", "@coronacandles.com" };
         public int def_upn;
 
-        void final_filler () // Fills in last page when creating new AD account
+        void final_filler ()
         {
             final_imie_textbox.Text = new_imie;
             final_nazwisko_textbox.Text = new_nazwisko;
@@ -39,7 +38,7 @@ namespace Gui_for_powerhell
             final_number_textbox.Text = number;
         }
 
-        void change_checker () // Checks for any changes in last page when creating new AD account
+        void change_checker ()
         {
             if (final_title_textbox.Text != title)
             {
@@ -63,7 +62,7 @@ namespace Gui_for_powerhell
             }
         }
 
-        void user_creator () // Creates new user in AD
+        void user_creator ()
         {
             change_checker();
             string path = "powershell_functions/user_creator.ps1";
@@ -92,7 +91,7 @@ namespace Gui_for_powerhell
             }
             File.Delete("result.txt");
         }
-        void Ou_search () // Takes all OU's for predefind AD path and puts them in listbox
+        void Ou_search ()
         {
             string path = "powershell_functions/ou_search.ps1";
             string script = File.ReadAllText(path);
@@ -111,7 +110,7 @@ namespace Gui_for_powerhell
             File.Delete("result.txt");
         }
 
-        void Group_copy () // Copies groups from one person to another
+        void Group_copy ()
         {
             string path = "powershell_functions/groups_copy.ps1";
             string script = File.ReadAllText(path);
@@ -122,7 +121,7 @@ namespace Gui_for_powerhell
             Application.Exit();
         }
 
-        void load_user_data () // Load users data from AD
+        void load_user_data ()
         {
             string path = "powershell_functions/user_propeties_getter.ps1";
             string script = File.ReadAllText(path);
@@ -151,7 +150,7 @@ namespace Gui_for_powerhell
             proxyaddresses_textbox.Text = proxyaddresses.Replace("`n","");
         }
 
-        void clear_dir () // Clear current path form all .txt files
+        void clear_dir ()
         {
             string[] directoryFiles = Directory.GetFiles("./", "*.txt");
             foreach (string directoryFile in directoryFiles)
@@ -160,7 +159,7 @@ namespace Gui_for_powerhell
             }
         }
 
-        void edit_user () // Edits global variables and check for type of proxyaddresses update to apply
+        void edit_user ()
         {
             int i = 0;
             clear_dir();
@@ -214,7 +213,22 @@ namespace Gui_for_powerhell
             }
         }
 
-        void Page_switcher(int current_page) // Changes visibility of panel based on current_page and action choosen in page 2
+        void disable_confirm()
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz wyłączyć użytkownika?", "Eekum bokum", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string path = "powershell_functions/User_deletion.ps1";
+                string script = File.ReadAllText(path);
+                string edited_script = script.Replace("$input1", deleted_surname).Replace("$input2", deleted_index).Replace("$user_input", username).Replace("$pass_input", password);
+                RunScript(edited_script);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+        }
+        void Page_switcher(int current_page)
         {
             switch (choosen)
             {
@@ -233,6 +247,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             break;
@@ -250,6 +265,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
                             choosen = -1;
@@ -306,6 +322,7 @@ namespace Gui_for_powerhell
                             Credencials_test_panel.Visible = false;
                             Action_choose_panel.Visible = true;
                             User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
                             User_donor_search_panel.Visible = false;
                             Back_button.Enabled = true;
                             Next_button.Enabled = false;
@@ -330,16 +347,72 @@ namespace Gui_for_powerhell
                             break;
                     }
                     break;
+                case 2: //Usuwanie użytkownika
+                    switch (current_page)
+                    {
+                        case 2:
+                            Main_label.Text = "Wybierz akcję";
+                            Credencials_test_panel.Visible = false;
+                            Action_choose_panel.Visible = true;
+                            User_name_pass_input.Visible = false;
+                            user_deletion_panel.Visible = false;
+                            User_donor_search_panel.Visible = false;
+                            Back_button.Enabled = true;
+                            Next_button.Enabled = false;
+                            choosen = -1;
+                            break;
+                        case 3:
+                            Main_label.Text = "Wpisz nazwę, a nastepnie wybierz użytkownika do usunięcia";
+                            Credencials_test_panel.Visible = false;
+                            Action_choose_panel.Visible = false;
+                            user_deletion_panel.Visible = true;
+                            Next_button.Enabled = false;
+                            break;
+                    }
+                    break;
             }
         }
 
-        private void Reciver_listbox_SelectedIndexChanged(object sender, EventArgs e) // Unlocks next button and takes selected index to global varible after selecting
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void user_deletion_Button_Click(object sender, EventArgs e)
+        {
+            Next_button.Enabled = false;
+            deleted_surname = user_deletion_TextBox.Text;
+            string path = "Powershell_functions/User_search.ps1";
+            string script = File.ReadAllText(path);
+            string edited_script = script.Replace("$input1", deleted_surname).Replace("$user_input", username).Replace("$pass_input", password);
+            RunScript(edited_script);
+            string results = File.ReadAllText("result.txt");
+            StringReader strReader = new StringReader(results);
+            while (true)
+            {
+                string temp = strReader.ReadLine();
+                if (temp != null)
+                {
+                    user_deletion_ListBox.Items.Add(temp);
+                }
+                else { break; }
+            }
+            File.Delete("result.txt");
+        }
+
+        private void user_deletion_ListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Next_button.Enabled = true;
+            deleted_index = user_deletion_ListBox.SelectedIndex.ToString();
+        }
+
+        private void Reciver_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             reciver_number = Reciver_listbox.SelectedIndex.ToString();
             Next_button.Enabled = true;
         }
 
-        private void proxyaddresses_update_checkbox_CheckedChanged(object sender, EventArgs e) // Changes type of proxyaddresses update
+        private void proxyaddresses_update_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             if (proxyaddresses_update_checkbox.Checked)
             {
@@ -351,7 +424,7 @@ namespace Gui_for_powerhell
             }
         }
 
-        private void Donor_search_button_Click(object sender, EventArgs e) // Searches AD for person with surname from input (donor)
+        private void Donor_search_button_Click(object sender, EventArgs e)
         {
             donor_nazwisko = Donor_nazwisko_textbox.Text;
             Donor_listbox.Items.Clear();
@@ -381,7 +454,7 @@ namespace Gui_for_powerhell
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e) // Searches AD for person with surname from input (reciver)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Next_button.Enabled = false;
             Reciver_listbox.Items.Clear();
@@ -404,7 +477,7 @@ namespace Gui_for_powerhell
             File.Delete("result.txt");
         }
 
-        private void Donor_listbox_SelectedIndexChanged(object sender, EventArgs e) // Unlock next button and takes selected index to global variable
+        private void Donor_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             donor_number = Donor_listbox.SelectedIndex.ToString();
             Next_button.Enabled = true;
@@ -415,7 +488,7 @@ namespace Gui_for_powerhell
             InitializeComponent();
         }
 
-        private void manager_textbox_TextChanged(object sender, EventArgs e) // Takes name of selected manager
+        private void manager_textbox_TextChanged(object sender, EventArgs e)
         {
             manager_name = manager_textbox.Text;
         }
@@ -425,7 +498,7 @@ namespace Gui_for_powerhell
 
         }
 
-        private void RunScript(string script) // Runs powershell scripts
+        private void RunScript(string script)
         {
             Runspace runspace = RunspaceFactory.CreateRunspace();
             runspace.Open();
@@ -435,14 +508,14 @@ namespace Gui_for_powerhell
             runspace.Close();
         }
 
-        private void Manager_listbox_SelectedIndexChanged(object sender, EventArgs e) // Takes manager surname from input and selecteed index and puts them into global variabe and unlocks next button
+        private void Manager_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             manager_number = Manager_listbox.SelectedIndex.ToString();
             manager_fullname = Manager_listbox.SelectedItem.ToString();
             Next_button.Enabled = true;
         }
 
-        private void Cred_test_button_Click(object sender, EventArgs e) // Test credencials from input, and unlocks next button based on outcome
+        private void Cred_test_button_Click(object sender, EventArgs e)
         {
             string script_edited, new_username, new_password, results;
             string path = "powershell_functions/credencial_check.ps1";
@@ -465,7 +538,7 @@ namespace Gui_for_powerhell
             File.Delete("Credencial_result.txt");
         }
 
-        private void Atribiute_check_button_Click(object sender, EventArgs e) // Check for correct dp_number in copies input to gobal variables
+        private void Atribiute_check_button_Click(object sender, EventArgs e)
         {
             title = title_textbox.Text;
             department = department_textbox.Text;
@@ -483,7 +556,7 @@ namespace Gui_for_powerhell
             }
         }
 
-        private void Back_button_Click(object sender, EventArgs e) // Back button
+        private void Back_button_Click(object sender, EventArgs e)
         {
             if ((choosen == 0) && (current_page == 7))
             {
@@ -497,7 +570,7 @@ namespace Gui_for_powerhell
             }
         }
 
-        private void Next_button_Click(object sender, EventArgs e) // Next button
+        private void Next_button_Click(object sender, EventArgs e)
         {
             if ((choosen == 0) && (current_page == 6)) {
                 user_creator();
@@ -510,6 +583,10 @@ namespace Gui_for_powerhell
             {
                 edit_user();
             }
+            else if ((choosen == 2) && (current_page == 3))
+            {
+                disable_confirm();
+            }
             else
             {
                 current_page++;
@@ -517,7 +594,7 @@ namespace Gui_for_powerhell
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) // Searches AD for managers in specified AD path with surname from input , and puts them in itembox
+        private void button1_Click(object sender, EventArgs e)
         {
             Next_button.Enabled = false;
             Manager_listbox.Items.Clear();
@@ -541,7 +618,7 @@ namespace Gui_for_powerhell
             File.Delete("result.txt");
         }
 
-        private void Choose_listbox_SelectedIndexChanged(object sender, EventArgs e) // Changes page_switcher 'choosen'
+        private void Choose_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Next_button.Enabled = true;
             choosen = Choose_listbox.SelectedIndex;
@@ -552,7 +629,7 @@ namespace Gui_for_powerhell
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) // Puts index and name of selected OU group into global variable and unock next button
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ou_number = Ou_listbox.SelectedIndex.ToString();
             ou_fullname = Ou_listbox.SelectedItem.ToString();
@@ -564,7 +641,7 @@ namespace Gui_for_powerhell
 
         }
 
-        private void Check_new_user_Click(object sender, EventArgs e) // Checks if there is user with same name and surname in AD
+        private void Check_new_user_Click(object sender, EventArgs e)
         {
             new_imie = new_imie_textbox.Text;
             new_nazwisko = new_nazwisko_textbox.Text;
