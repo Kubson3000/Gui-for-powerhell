@@ -79,7 +79,7 @@ function Upn-changer ($deafult_upn) {
         Set-Variable -Name 'upn_choosen' -Value $upn_list[$upn_choice-1] -Scope Global
     }
     else {
-        Set-Variable -Name 'upn_choosen' -Value $upn_list[$upn_choice-1] -Scope Global
+        Set-Variable -Name 'upn_choosen' -Value $deafult_upn -Scope Global
     }
 }
 
