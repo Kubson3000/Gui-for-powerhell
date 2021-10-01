@@ -79,7 +79,7 @@ function Upn-changer ($deafult_upn) {
         Set-Variable -Name 'upn_choosen' -Value $upn_list[$upn_choice-1] -Scope Global
     }
     else {
-        Set-Variable -Name 'upn_choosen' -Value $upn_list[$upn_choice-1] -Scope Global
+        Set-Variable -Name 'upn_choosen' -Value $deafult_upn -Scope Global
     }
 }
 
@@ -278,7 +278,7 @@ if ($akcja -eq 1) { # Tworzenie nowego konta AD
         Set-ADUser $samusername -Replace @{streetAddress="Fabryczna 10"} -Credential $user_credentials
         Set-ADUser $samusername -Replace @{c="PL"} -Credential $user_credentials
         Set-ADUser $samusername -Replace @{countryCode="616"} -Credential $user_credentials
-        Add-ADGroupMember -Identity "GalaPolandSpzoo" -Members $samusername -Credential $user_credentials
+        Add-ADGroupMember -Identity "KoronaSp.zo.o" -Members $samusername -Credential $user_credentials
     }
     else {
         $def_upn = "@koronacandles.com"

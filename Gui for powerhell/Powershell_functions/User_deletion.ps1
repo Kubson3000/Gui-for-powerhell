@@ -15,4 +15,3 @@ $deleted_san = $array[$index]
 Get-ADUser -Identity $samusername | Move-ADObject -TargetPath $oufinal -Credential $user_credentials
 Set-ADUser $samusername -Clear MemberOf -Credential $user_credentials
 Set-ADUser $samusername -Replace @{manager="Administrator"} -Credential $user_credentials
-Disable-ADAccount $samusername
