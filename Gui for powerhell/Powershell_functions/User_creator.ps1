@@ -58,7 +58,7 @@ if ($oufinal -notlike "OU=Korona Candles Inc.,OU=O365,OU=Users,OU=MyBusiness,DC=
     Set-ADUser $samusername -Replace @{c="PL"} -Credential $user_credentials
     Set-ADUser $samusername -Replace @{countryCode="616"} -Credential $user_credentials
     Set-ADUser $samusername -Replace @{Company="GALA POLAND Sp. z o.o."} -Credential $user_credentials
-    Add-ADGroupMember -Identity "KoronaSp.zo.o" -Members $samusername -Credential $user_credentials
+    # Add-ADGroupMember -Identity "KoronaSp.zo.o" -Members $samusername -Credential $user_credentials
 }
 else {
     $def_upn = "@koronacandles.com"
@@ -70,7 +70,7 @@ else {
     Set-ADUser $samusername -Replace @{c="US"} -Credential $user_credentials
     Set-ADUser $samusername -Replace @{countryCode="840"} -Credential $user_credentials
     Set-ADUser $samusername -Replace @{Company="GALA NORTH AMERICA Inc."} -Credential $user_credentials
-    Add-ADGroupMember -Identity "Korona Candles INC" -Members $samusername -Credential $user_credentials
+    # Add-ADGroupMember -Identity "Korona Candles INC" -Members $samusername -Credential $user_credentials
 }
 Get-ADUser -Identity $samusername | Move-ADObject -TargetPath $oufinal -Credential $user_credentials
 New-Item -Name "result.txt" -Value "1" -Force
