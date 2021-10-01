@@ -123,9 +123,10 @@ namespace Gui_for_powerhell
             this.modify_imie_textbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.user_disable_panel = new System.Windows.Forms.Panel();
-            this.user_disable_Button = new System.Windows.Forms.Button();
-            this.user_disable_TextBox = new System.Windows.Forms.TextBox();
             this.user_disable_ListBox = new System.Windows.Forms.ListBox();
+            this.user_disable_TextBox = new System.Windows.Forms.TextBox();
+            this.user_disable_Button = new System.Windows.Forms.Button();
+            this.user_disable_clear_memberof_checkbox = new System.Windows.Forms.CheckBox();
             this.Bottom_buttons_panel.SuspendLayout();
             this.Credencials_test_panel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -1096,6 +1097,7 @@ namespace Gui_for_powerhell
             // 
             // user_disable_panel
             // 
+            this.user_disable_panel.Controls.Add(this.user_disable_clear_memberof_checkbox);
             this.user_disable_panel.Controls.Add(this.user_disable_ListBox);
             this.user_disable_panel.Controls.Add(this.user_disable_TextBox);
             this.user_disable_panel.Controls.Add(this.user_disable_Button);
@@ -1104,6 +1106,22 @@ namespace Gui_for_powerhell
             this.user_disable_panel.Size = new System.Drawing.Size(598, 259);
             this.user_disable_panel.TabIndex = 10;
             this.user_disable_panel.Visible = false;
+            // 
+            // user_disable_ListBox
+            // 
+            this.user_disable_ListBox.FormattingEnabled = true;
+            this.user_disable_ListBox.Location = new System.Drawing.Point(6, 31);
+            this.user_disable_ListBox.Name = "user_disable_ListBox";
+            this.user_disable_ListBox.Size = new System.Drawing.Size(390, 225);
+            this.user_disable_ListBox.TabIndex = 2;
+            this.user_disable_ListBox.SelectedIndexChanged += new System.EventHandler(this.user_disable_ListBox_SelectedIndexChanged_1);
+            // 
+            // user_disable_TextBox
+            // 
+            this.user_disable_TextBox.Location = new System.Drawing.Point(6, 8);
+            this.user_disable_TextBox.Name = "user_disable_TextBox";
+            this.user_disable_TextBox.Size = new System.Drawing.Size(501, 20);
+            this.user_disable_TextBox.TabIndex = 1;
             // 
             // user_disable_Button
             // 
@@ -1115,21 +1133,15 @@ namespace Gui_for_powerhell
             this.user_disable_Button.UseVisualStyleBackColor = true;
             this.user_disable_Button.Click += new System.EventHandler(this.user_disable_Button_Click_1);
             // 
-            // user_disable_TextBox
+            // user_disable_clear_memberof_checkbox
             // 
-            this.user_disable_TextBox.Location = new System.Drawing.Point(6, 8);
-            this.user_disable_TextBox.Name = "user_disable_TextBox";
-            this.user_disable_TextBox.Size = new System.Drawing.Size(501, 20);
-            this.user_disable_TextBox.TabIndex = 1;
-            // 
-            // user_disable_ListBox
-            // 
-            this.user_disable_ListBox.FormattingEnabled = true;
-            this.user_disable_ListBox.Location = new System.Drawing.Point(6, 31);
-            this.user_disable_ListBox.Name = "user_disable_ListBox";
-            this.user_disable_ListBox.Size = new System.Drawing.Size(582, 225);
-            this.user_disable_ListBox.TabIndex = 2;
-            this.user_disable_ListBox.SelectedIndexChanged += new System.EventHandler(this.user_disable_ListBox_SelectedIndexChanged_1);
+            this.user_disable_clear_memberof_checkbox.AutoSize = true;
+            this.user_disable_clear_memberof_checkbox.Location = new System.Drawing.Point(402, 31);
+            this.user_disable_clear_memberof_checkbox.Name = "user_disable_clear_memberof_checkbox";
+            this.user_disable_clear_memberof_checkbox.Size = new System.Drawing.Size(85, 17);
+            this.user_disable_clear_memberof_checkbox.TabIndex = 3;
+            this.user_disable_clear_memberof_checkbox.Text = "Clear groups";
+            this.user_disable_clear_memberof_checkbox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1152,7 +1164,6 @@ namespace Gui_for_powerhell
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "AD helper";
             this.Bottom_buttons_panel.ResumeLayout(false);
             this.Credencials_test_panel.ResumeLayout(false);
             this.Credencials_test_panel.PerformLayout();
@@ -1279,6 +1290,7 @@ namespace Gui_for_powerhell
         private System.Windows.Forms.ListBox user_disable_ListBox;
         private System.Windows.Forms.TextBox user_disable_TextBox;
         private System.Windows.Forms.Button user_disable_Button;
+        private System.Windows.Forms.CheckBox user_disable_clear_memberof_checkbox;
     }
 }
 

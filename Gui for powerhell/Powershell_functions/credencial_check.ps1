@@ -1,5 +1,5 @@
-$username = $user_input
-$password = $pass_input
+$username = "$user_input"
+$password = "$pass_input"
 $password = ConvertTo-SecureString -String $password -asplaintext -Force
 $user_credentials = New-Object System.Management.Automation.PSCredential $username,$password
 

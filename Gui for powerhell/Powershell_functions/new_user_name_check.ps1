@@ -1,6 +1,6 @@
-$imie = $input1
-$nazwisko = $input2
-$haslo = $input3
+$imie = "$input1"
+$nazwisko = "$input2"
+$haslo = "$input3"
 
 $password = ConvertTo-SecureString -String $haslo -asplaintext -Force
 $imiel = $imie.ToLower().Normalize("FormD") -replace '\p{M}', ''

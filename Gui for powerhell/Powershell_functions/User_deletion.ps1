@@ -1,5 +1,6 @@
 $nazwisko = "$input1"
 $index = "$input2"
+$clear = $input3
 
 $username = "$user_input"
 $password = "$pass_input"
@@ -13,5 +14,7 @@ $array = Get-ADUser -SearchBase $oued_mng -Filter "(sn -eq '$nazwisko')" -Proper
 $deleted_san = $array[$index]
 
 Get-ADUser -Identity $samusername | Move-ADObject -TargetPath $oufinal -Credential $user_credentials
-Set-ADUser $samusername -Clear MemberOf -Credential $user_credentials
+if ($clear -eq 1) {
+	Set-ADUser $samusername -Clear MemberOf -Credential $user_credentials
+}
 Set-ADUser $samusername -Replace @{manager="Administrator"} -Credential $user_credentials

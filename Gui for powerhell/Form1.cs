@@ -222,6 +222,14 @@ namespace Gui_for_powerhell
                 string path = "powershell_functions/User_disable.ps1";
                 string script = File.ReadAllText(path);
                 string edited_script = script.Replace("$input1", deleted_surname).Replace("$input2", deleted_index).Replace("$user_input", username).Replace("$pass_input", password);
+                if (user_disable_clear_memberof_checkbox.Checked)
+                {
+                    edited_script = edited_script.Replace("$input3", "1");
+                }
+                else
+                {
+                    edited_script = edited_script.Replace("$input3", "0");
+                }
                 RunScript(edited_script);
             }
             else if (dialogResult == DialogResult.No)
@@ -369,6 +377,9 @@ namespace Gui_for_powerhell
                             user_disable_panel.Visible = true;
                             Next_button.Enabled = false;
                             break;
+                        default:
+                            Console.WriteLine("Page_switcher error (2 defult)");
+                            break;
                     }
                     break;
             }
@@ -422,6 +433,7 @@ namespace Gui_for_powerhell
             else
             {
                 keep_old_proxy_checkbox.Enabled = false;
+                keep_old_proxy_checkbox.Checked = false;
             }
         }
 
@@ -518,16 +530,13 @@ namespace Gui_for_powerhell
 
         private void Cred_test_button_Click(object sender, EventArgs e) // checks credencials input from user
         {
-            string script_edited, new_username, new_password, results;
             string path = "powershell_functions/credencial_check.ps1";
             string script = File.ReadAllText(path);
             username = Username_box.Text;
             password = Password_box.Text;
-            new_username = '"' + username + '"';
-            new_password = '"' + password + '"';
-            script_edited = script.Replace("$user_input", new_username).Replace("$pass_input", new_password);
+            string script_edited = script.Replace("$user_input", username).Replace("$pass_input", password);
             RunScript(script_edited);
-            results = File.ReadAllText("Credencial_result.txt");
+            string results = File.ReadAllText("Credencial_result.txt");
             if (results == "1") // Credencials correct
             {
                 Next_button.Enabled = true;
@@ -647,12 +656,9 @@ namespace Gui_for_powerhell
             new_imie = new_imie_textbox.Text;
             new_nazwisko = new_nazwisko_textbox.Text;
             new_password = new_password_textbox.Text;
-            string imie = '"' + new_imie + '"';
-            string nazwisko = '"' + new_nazwisko + '"';
-            string password = '"' + new_password + '"';
             string path = "powershell_functions/new_user_name_check.ps1";
             string script = File.ReadAllText(path);
-            string script_edited = script.Replace("$input1", imie).Replace("$input2", nazwisko).Replace("$input3", password);
+            string script_edited = script.Replace("$input1", new_imie).Replace("$input2", new_nazwisko).Replace("$input3", new_password);
             RunScript(script_edited);
             string results = File.ReadAllText("result.txt");
             if (results == "0")
